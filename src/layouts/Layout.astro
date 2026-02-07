@@ -2,17 +2,22 @@
 import "../styles/global.css";
 import BackgroundPrimary from "../components/BackgroundPrimary.astro";
 import Footer from "../components/Footer.astro";
+import { useTranslations } from "../assets/i18n/utils";
+import { langList } from "../assets/i18n/translationData";
+
+const currentLang = Astro.currentLocale;
+const translate = useTranslations(currentLang as keyof typeof langList);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Portfolio with Astro</title>
+		<title>{translate("head_title")}</title>
 	</head>
 	<body class="px-8">
 		<BackgroundPrimary />
