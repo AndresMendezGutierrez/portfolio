@@ -1,0 +1,25 @@
+---
+const { translations, langList } = Astro.props;
+---
+
+<!-- this is a test from the AI -->{
+    Object.keys(translations).map((lang) => (
+        <button
+            type="button"
+            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+        >
+            {lang}
+        </button>
+    ))
+}
+
+<!-- this is a test from the https://www.youtube.com/watch?v=NhOoUEvbFzU&pp=ygULaTE4biBhc3RybyDSBwkJkQoBhyohjO8%3D -->
+<!-- {
+    Object.entries(langList).map(([key, label]) => {
+        return (
+            <li>
+                <a href={`/${key}`}>{label}</a>
+            </li>
+        );
+    })
+} -->
