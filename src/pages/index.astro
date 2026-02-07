@@ -1,9 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Home from "./home.astro";
+import Skills from "../components/Skills.astro";
 import Intro from "../components/intro.astro";
 import MainSection from "../components/MainSection.astro";
 import About from "../components/About.astro";
+import WhatIDo from "../components/WhatIDo.astro";
 ---
 
-<Layout />
+<Layout>
+	<Intro />
+	<MainSection id="about">
+		<About />
+	</MainSection>
+	<MainSection id="what-i-do">
+		<WhatIDo />
+	</MainSection>
+	<MainSection id="skills">
+		<Skills />
+	</MainSection>
+</Layout>
