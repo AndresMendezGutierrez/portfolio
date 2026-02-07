@@ -1,14 +1,17 @@
 ---
-
+const { translate } = Astro.props;
 ---
 
-<h3>About</h3>
-<p>¡Hello there! <span class="animate-waving-hand">👋</span></p>
+<h3>{translate("about_title")}</h3>
+<p>{translate("about_greeting")} <span class="animate-waving-hand">👋</span></p>
+
 <p>
-    As you may have noticed, my name is Andrés Méndez and I am a programmer with
-    experience in the development of modern, functional and optimized websites
-    for a good user experience. I am passionate about technology, enjoying
-    learning new tools and constantly improving my skills to face new challenges
-    and opportunities where I can contribute, learn from a team and continue
-    evolving professionally.
+    {translate("about_paragraph_1")}
+</p>
+
+<p>
+    {translate("about_maybe_1")}
+</p>
+<p>
+    {translate("about_maybe_2")}
 </p>

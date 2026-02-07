@@ -2,11 +2,8 @@
 import "../styles/global.css";
 import BackgroundPrimary from "../components/BackgroundPrimary.astro";
 import Footer from "../components/Footer.astro";
-import { useTranslations } from "../assets/i18n/utils";
-import { langList } from "../assets/i18n/translationData";
 
-const currentLang = Astro.currentLocale;
-const translate = useTranslations(currentLang as keyof typeof langList);
+const { currentLang, translate } = Astro.props;
 ---
 
 <!doctype html>

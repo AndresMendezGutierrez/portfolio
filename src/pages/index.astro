@@ -1,21 +1,30 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Skills from "../components/Skills.astro";
+import { langList } from "../assets/i18n/translationData";
+import { useTranslations } from "../assets/i18n/utils";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
 import Intro from "../components/intro.astro";
 import MainSection from "../components/MainSection.astro";
-import About from "../components/About.astro";
+import Skills from "../components/Skills.astro";
 import WhatIDo from "../components/WhatIDo.astro";
+import Layout from "../layouts/Layout.astro";
+
+const currentLang = Astro.currentLocale;
+const translate = useTranslations(currentLang as keyof typeof langList);
 ---
 
-<Layout>
-	<Intro />
+<Layout currentLang={currentLang} translate={translate}>
+	<Intro translate={translate} />
 	<MainSection id="about">
-		<About />
+		<About translate={translate} />
 	</MainSection>
 	<MainSection id="what-i-do">
-		<WhatIDo />
+		<WhatIDo translate={translate} />
 	</MainSection>
 	<MainSection id="skills">
-		<Skills />
+		<Skills translate={translate} />
+	</MainSection>
+	<MainSection id="contact">
+		<Contact translate={translate} />
 	</MainSection>
 </Layout>

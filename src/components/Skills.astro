@@ -1,11 +1,10 @@
 ---
-
+const { translate } = Astro.props;
 ---
 
-<h3>Skills</h3>
+<h3>{translate("skills_title")}</h3>
 <p>
-    These are some of the technologies and tools I have worked with in project
-    development.
+    {translate("skills_description")}
 </p>
 <section>
     <ul>

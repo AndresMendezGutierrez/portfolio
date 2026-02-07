@@ -1,23 +1,23 @@
 ---
 import GithubIcon from "../assets/icons/GithubIcon.astro";
 import Badge from "./Badge.astro";
+
+const { translate } = Astro.props;
 ---
 
 <section
     id="intro"
-    class="flex flex-col gap-4 h-screen justify-center items-center"
+    class="flex flex-col gap-4 min-h-screen justify-center items-center"
 >
-    <h1 class="text-6xl font-bold z-10">Andrés Méndez</h1>
-    <h2 class="text-2xl font-bold">Web Developer Junior</h2>
-    <Badge>Available for Junior projects and opportunities</Badge>
+    <h1 class="text-6xl font-bold z-10">{translate("intro_title")}</h1>
+    <h2 class="text-2xl font-bold">{translate("intro_subtitle")}</h2>
+    <Badge>{translate("intro_status")}</Badge>
 
     <section class="grid gap-2 md:flex md:gap-4">
-        <GithubIcon />Versions
-        <GithubIcon />Intro
-        <GithubIcon />About
-        <GithubIcon />What I do
-        <GithubIcon />Skills
-        <GithubIcon />Contact
-        <GithubIcon />Contact form.
+        <GithubIcon />{translate("nav_versions")}
+        <GithubIcon />{translate("nav_intro")}
+        <GithubIcon />{translate("nav_about")}
+        <GithubIcon />{translate("nav_skills")}
+        <GithubIcon />{translate("nav_contact")}
     </section>
 </section>
