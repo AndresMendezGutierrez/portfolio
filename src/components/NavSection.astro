@@ -1,0 +1,24 @@
+---
+import NavListItem from "./NavListItem.astro";
+
+const { translate, class: className } = Astro.props;
+---
+
+<nav class={`flex gap-2 md:gap-4 ${className}`}>
+  <!-- <NavListItem href="#">
+      <VersionIcon />
+      {translate("nav_version")}
+    </NavListItem> -->
+  <NavListItem href="#intro">
+    {translate("nav_intro")}
+  </NavListItem>
+  <NavListItem href="#about">
+    {translate("nav_about")}
+  </NavListItem>
+  <NavListItem href="#skills">
+    {translate("nav_skills")}
+  </NavListItem>
+  <NavListItem href="#contact">
+    {translate("nav_contact")}
+  </NavListItem>
+</nav>
