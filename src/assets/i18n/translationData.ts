@@ -28,5 +28,7 @@ export const ui = {
         contact_email: "Email",
         contact_message: "Message",
         contact_send: "Send",
+        footer_copyright: "Copyright © 2026, almost all rights reserved",
+        footer_credits: "Credits",
     }
 } as const;

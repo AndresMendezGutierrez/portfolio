@@ -14,17 +14,17 @@ const translate = useTranslations(currentLang as keyof typeof langList);
 ---
 
 <Layout currentLang={currentLang} translate={translate}>
-	<Intro translate={translate} />
-	<MainSection id="about">
-		<About translate={translate} />
-	</MainSection>
-	<MainSection id="what-i-do">
-		<WhatIDo translate={translate} />
-	</MainSection>
-	<MainSection id="skills">
-		<Skills translate={translate} />
-	</MainSection>
-	<MainSection id="contact">
-		<Contact translate={translate} />
-	</MainSection>
+  <Intro translate={translate} />
+  <MainSection id="about">
+    <About translate={translate} />
+  </MainSection>
+  <MainSection id="what-i-do">
+    <!-- <WhatIDo translate={translate} /> -->
+  </MainSection>
+  <MainSection id="skills">
+    <Skills translate={translate} />
+  </MainSection>
+  <MainSection id="contact">
+    <Contact translate={translate} />
+  </MainSection>
 </Layout>
