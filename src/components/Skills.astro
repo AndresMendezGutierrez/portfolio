@@ -1,23 +1,12 @@
 ---
+import SkillsCarousel from "./SkillsCarousel.astro";
+
 const { translate } = Astro.props;
 ---
 
 <h3>{translate("skills_title")}</h3>
 <p>
-    {translate("skills_description")}
+  {translate("skills_description")}
 </p>
-<section>
-    <ul>
-        <li>HTML 5</li>
-        <li>CSS 3</li>
-        <li>JavaScript</li>
-        <li>Astro</li>
-        <li>Tailwind CSS</li>
-        <li>Bootstrap</li>
-        <li>Angular</li>
-        <li>TypeScript</li>
-        <li>Git</li>
-        <li>GitHub</li>
-        <li>Bitbucket</li>
-    </ul>
-</section>
+
+<SkillsCarousel />

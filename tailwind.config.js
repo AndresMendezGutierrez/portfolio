@@ -5,6 +5,10 @@ module.exports = {
     ],
     theme: {
         extend: {
+            animation: {
+                'waving-hand': 'wave 2s linear infinite',
+                'carousel': 'carousel 30s linear infinite',
+            },
             keyframes: {
                 wave: {
                     '0%': { transform: 'rotate(0.0deg)' },
@@ -16,9 +20,10 @@ module.exports = {
                     '60%': { transform: 'rotate(0.0deg)' },
                     '100%': { transform: 'rotate(0.0deg)' },
                 },
-            },
-            animation: {
-                'waving-hand': 'wave 2s linear infinite',
+                carousel: {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-50%)' },
+                },
             },
         },
     },

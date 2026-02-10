@@ -1,0 +1,51 @@
+---
+const skills = [
+  { name: "HTML 5", icon: "html-icon" },
+  { name: "CSS 3", icon: "css-icon" },
+  { name: "JavaScript", icon: "javascript-icon" },
+  { name: "Astro", icon: "astro-icon" },
+  { name: "Tailwind CSS", icon: "tailwindcss-icon" },
+  { name: "Bootstrap", icon: "bootstrap-icon" },
+  { name: "Angular", icon: "angular-icon" },
+  { name: "TypeScript", icon: "typescript-icon" },
+  { name: "Git", icon: "git-icon" },
+  { name: "GitHub", icon: "github-icon" },
+  { name: "Bitbucket", icon: "bitbucket-icon" },
+];
+
+const doubleSkills = [...skills, ...skills];
+---
+
+<section class="overflow-hidden w-full border-b border-t border-white/10">
+  <ul class="flex w-max gap-8 py-4 animate-carousel will-change-transform">
+    {
+      doubleSkills.map((skill) => (
+        <li class="flex flex-shrink-0 items-center gap-2 whitespace-nowrap">
+          {skill.name}
+          <svg class="w-8 h-8">
+            <use href={`/assets/icons/dev-sprites.svg#${skill.icon}`} />
+          </svg>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<style>
+  .animate-carousel {
+    animation: scroll 10s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - 1rem));
+    }
+  }
+
+  .animate-carousel:hover {
+    animation-play-state: paused;
+  }
+</style>
