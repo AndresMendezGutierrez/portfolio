@@ -1,0 +1,9 @@
+---
+import CardWID from "./CardWID.astro";
+
+const { translate } = Astro.props;
+---
+
+<h3>{translate("what_i_do_title")}</h3>
+
+<CardWID translate={translate} />
