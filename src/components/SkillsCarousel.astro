@@ -1,18 +1,9 @@
 ---
-const skills = [
-  { name: "HTML 5", icon: "html-icon" },
-  { name: "CSS 3", icon: "css-icon" },
-  { name: "JavaScript", icon: "javascript-icon" },
-  { name: "Astro", icon: "astro-icon" },
-  { name: "Tailwind CSS", icon: "tailwindcss-icon" },
-  { name: "Bootstrap", icon: "bootstrap-icon" },
-  { name: "Angular", icon: "angular-icon" },
-  { name: "TypeScript", icon: "typescript-icon" },
-  { name: "Git", icon: "git-icon" },
-  { name: "GitHub", icon: "github-icon" },
-  { name: "Bitbucket", icon: "bitbucket-icon" },
-];
+interface Props {
+  skills?: { name: string; icon: string }[];
+}
 
+const skills = Astro.props.skills || [];
 const doubleSkills = [...skills, ...skills];
 ---
 
