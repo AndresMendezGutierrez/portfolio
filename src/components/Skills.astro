@@ -4,7 +4,7 @@ import { getRemoteConfigValue } from "../firebase/remoteConfig";
 
 const { translate } = Astro.props;
 
-let skills: { name: string; icon: string }[] | undefined;
+let skills: { name: string; icon: string; id: number }[] | undefined;
 
 try {
   const skillsJson = await getRemoteConfigValue("skills", "");

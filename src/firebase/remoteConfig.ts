@@ -1,23 +1,6 @@
 import { app } from "./server";
 import { getRemoteConfig } from "firebase-admin/remote-config";
 
-/**
- * Firebase Remote Config service (Server-side via Admin SDK)
- *
- * Usage:
- *   import { getRemoteConfigValue, getRemoteConfigValues } from "../firebase/remoteConfig";
- *
- *   // Get a single value
- *   const heroTitle = await getRemoteConfigValue("hero_title", "Default Title");
- *
- *   // Get multiple values
- *   const config = await getRemoteConfigValues({
- *     hero_title: "Default Title",
- *     hero_subtitle: "Default Subtitle",
- *     show_contact_form: "true",
- *   });
- */
-
 const remoteConfig = getRemoteConfig(app);
 
 // Cache the template to avoid repeated API calls
