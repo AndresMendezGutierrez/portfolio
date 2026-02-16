@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+  font-family: "Sometype Mono";
 }
 
 html {
@@ -21,6 +22,34 @@ body {
   font-family: "Workbench";
   src: url("/fonts/Workbench.ttf") format("truetype");
   font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sometype Mono"; 
+  src: url("/fonts/SometypeMono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sometype Mono"; 
+  src: url("/fonts/SometypeMono-Medium.ttf") format("truetype");
+  font-weight: medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sometype Mono"; 
+  src: url("/fonts/SometypeMono-SemiBold.ttf") format("truetype");
+  font-weight: semibold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sometype Mono"; 
+  src: url("/fonts/SometypeMono-Bold.ttf") format("truetype");
+  font-weight: bold;
   font-style: normal;
 }
 
