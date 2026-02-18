@@ -11,11 +11,11 @@ const doubleSkills = [...skills, ...skills];
   <ul class="flex w-max gap-8 py-4 animate-carousel will-change-transform">
     {
       doubleSkills.map((skill) => (
-        <li class="flex flex-shrink-0 items-center gap-2 whitespace-nowrap">
-          {skill.name}
-          <svg class="w-8 h-8">
-            <use href={`/assets/icons/dev-sprites.svg#${skill.icon}`} />
+        <li class="text-center">
+          <svg>
+            <use href={`/assets/icons/icons-sprite.svg#${skill.icon}`} />
           </svg>
+          <p>{skill.name}</p>
         </li>
       ))
     }
@@ -24,7 +24,7 @@ const doubleSkills = [...skills, ...skills];
 
 <style>
   .animate-carousel {
-    animation: scroll 10s linear infinite;
+    animation: scroll 20s linear infinite;
   }
 
   @keyframes scroll {
