@@ -13,7 +13,7 @@ const { currentLang, translate } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={currentLang}>
+<html lang={currentLang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={translate("head_description")} />
@@ -23,9 +23,13 @@ const { currentLang, translate } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{translate("head_title")}</title>
   </head>
-  <body class="px-[18px]">
-    <Header translate={translate} />
-    <main>
+  <body
+    class="bg-white dark:bg-black dark:text-white px-[18px] md:px-8 lg:px-16"
+  >
+    <Header
+      class="px-[18px] md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-[1408px] mx-auto"
+    />
+    <main class="max-w-7xl mx-auto">
       <MainSection
         id="intro"
         class="min-h-screen flex flex-col justify-center items-center relative"
