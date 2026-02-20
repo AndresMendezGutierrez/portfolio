@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss"; /* @layer theme, base, components, utilities; */
 @import "./abstracts/variables.css";
 @import "./abstracts/mixins.css";
 @import "./base/base.css";

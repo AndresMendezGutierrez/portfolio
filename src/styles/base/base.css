@@ -1,9 +1,15 @@
-:root {
-  font-family: "Sometype Mono";
-}
+@layer base {
+  :root {
+    font-family: "Sometype Mono";
+  }
 
-html {
-  scroll-behavior: smooth;
+  html {
+    scroll-behavior: smooth;
+  }
+
+  button {
+    cursor: pointer;
+  }
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
