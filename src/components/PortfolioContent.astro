@@ -1,0 +1,29 @@
+---
+import About from "./About.astro";
+import Contact from "./Contact.astro";
+import Intro from "./Intro.astro";
+import MainSection from "./MainSection.astro";
+import Skills from "./Skills.astro";
+import WhatIDo from "./WhatIDo.astro";
+
+const { translate } = Astro.props;
+---
+
+<MainSection
+  id="intro"
+  class="min-h-screen flex flex-col justify-center items-center relative"
+>
+  <Intro translate={translate} />
+</MainSection>
+<MainSection id="about" class="flex flex-col gap-4 py-10">
+  <About translate={translate} />
+</MainSection>
+<MainSection id="what-i-do" class="grid justify-center gap-4">
+  <WhatIDo translate={translate} />
+</MainSection>
+<MainSection id="skills" class="flex flex-col gap-4 py-10">
+  <Skills translate={translate} />
+</MainSection>
+<MainSection id="contact">
+  <Contact translate={translate} />
+</MainSection>

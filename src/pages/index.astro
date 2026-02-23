@@ -1,16 +1,14 @@
 ---
-import { langList } from "../assets/i18n/translationData";
 import { useTranslations } from "../assets/i18n/utils";
+import PortfolioContent from "../components/PortfolioContent.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 
-const currentLang = Astro.currentLocale;
-const translate = useTranslations(currentLang as keyof typeof langList);
+const lang = Astro.currentLocale || "en";
+
+const translate = useTranslations(lang as "es" | "en" | "de");
 ---
 
-<Layout
-  tittle={translate("head_title")}
-  description={translate("head_description")}
-  currentLang={currentLang}
-  translate={translate}
-/>
+<Layout currentLang={lang} translate={translate}>
+  <PortfolioContent translate={translate} />
+</Layout>

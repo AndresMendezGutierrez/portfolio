@@ -1,0 +1,23 @@
+---
+import {
+  defaultLang,
+  languages,
+  useTranslations,
+} from "../../assets/i18n/utils";
+import PortfolioContent from "../../components/PortfolioContent.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+
+export async function getStaticPaths() {
+  return Object.keys(languages)
+    .filter((lang) => lang !== defaultLang)
+    .map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const translate = useTranslations(lang as "es" | "de");
+---
+
+<Layout lang={lang} translate={translate}>
+  <PortfolioContent translate={translate} />
+</Layout>

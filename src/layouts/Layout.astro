@@ -1,24 +1,17 @@
 ---
-import About from "../components/About.astro";
 import BackgroundPrimary from "../components/BackgroundPrimary.astro";
-import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
-import Intro from "../components/Intro.astro";
-import MainSection from "../components/MainSection.astro";
-import Skills from "../components/Skills.astro";
-import WhatIDo from "../components/WhatIDo.astro";
 
-const { currentLang, translate } = Astro.props;
+const { lang, translate } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={currentLang} class="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={translate("head_description")} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{translate("head_title")}</title>
@@ -28,26 +21,11 @@ const { currentLang, translate } = Astro.props;
   >
     <Header
       class="px-[18px] md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-[1408px] mx-auto"
+      currentLang={lang}
+      translate={translate}
     />
     <main class="max-w-7xl mx-auto">
-      <MainSection
-        id="intro"
-        class="min-h-screen flex flex-col justify-center items-center relative"
-      >
-        <Intro translate={translate} />
-      </MainSection>
-      <MainSection id="about" class="flex flex-col gap-4 py-10">
-        <About translate={translate} />
-      </MainSection>
-      <MainSection id="what-i-do" class="grid justify-center gap-4">
-        <WhatIDo translate={translate} />
-      </MainSection>
-      <MainSection id="skills" class="flex flex-col gap-4 py-10">
-        <Skills translate={translate} />
-      </MainSection>
-      <MainSection id="contact">
-        <Contact translate={translate} />
-      </MainSection>
+      <slot />
     </main>
     <Footer translate={translate} />
     <BackgroundPrimary />
