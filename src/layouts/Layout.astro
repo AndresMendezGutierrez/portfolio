@@ -1,7 +1,7 @@
 ---
 import type { useTranslations } from "../assets/i18n/utils";
-import BackgroundPrimary from "../components/BackgroundPrimary.astro";
 import Footer from "../components/Footer.astro";
+import GridBackground from "../components/GridBackground.astro";
 import Header from "../components/Header.astro";
 
 interface Props {
@@ -32,6 +32,6 @@ const { currentLang, translate } = Astro.props;
       <slot />
     </main>
     <Footer translate={translate} />
-    <BackgroundPrimary />
+    <GridBackground />
   </body>
 </html>

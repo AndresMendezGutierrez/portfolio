@@ -1,5 +1,5 @@
 ---
-import BackgroundPrimary from "../components/BackgroundPrimary.astro";
+import GridBackground from "../components/GridBackground.astro";
 import Header from "../components/Header.astro";
 
 const { currentLang, translate } = Astro.props;
@@ -28,6 +28,6 @@ const { currentLang, translate } = Astro.props;
     >
       <slot />
     </main>
-    <BackgroundPrimary />
+    <GridBackground />
   </body>
 </html>
