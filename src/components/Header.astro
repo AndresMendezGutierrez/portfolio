@@ -5,19 +5,15 @@ import ThemeButton from "./ThemeButton.astro";
 const { class: className, currentLang, translate } = Astro.props;
 ---
 
-<header
-  class="fixed left-0 right-0 z-50 bg-gradient-to-b dark:from-black/100 from-white/100 to-transparent transition-opacity duration-500"
->
-  <section class={`${className} flex justify-between`}>
-    <p class="text-[38px] lg:text-5xl font-[workbench]">AM</p>
-    <nav class="flex items-center gap-7">
-      <ThemeButton />
-      <LanguagePicker currentLang={currentLang} translate={translate} />
-      <button class="md:hidden">
-        <svg class="w-6 h-6">
-          <use href="/src/assets/icons/icons-sprite.svg#menu-icon"></use>
-        </svg>
-      </button>
-    </nav>
-  </section>
-</header>
+<section class={`${className} flex justify-between`}>
+  <p class="text-[38px] lg:text-5xl font-[workbench]">AM</p>
+  <nav class="flex items-center gap-7">
+    <ThemeButton />
+    <LanguagePicker currentLang={currentLang} translate={translate} />
+    <button class="md:hidden">
+      <svg class="w-6 h-6">
+        <use href="/src/assets/icons/icons-sprite.svg#menu-icon"></use>
+      </svg>
+    </button>
+  </nav>
+</section>

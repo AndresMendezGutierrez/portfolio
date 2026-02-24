@@ -47,14 +47,20 @@ const { currentLang, translate } = Astro.props;
   <body
     class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 transition-colors duration-300"
   >
-    <Header
-      class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto"
-      currentLang={currentLang}
-      translate={translate}
-    />
+    <header
+      class="fixed left-0 right-0 z-50 bg-gradient-to-b dark:from-black/100 from-white/100 to-transparent transition-opacity duration-500"
+    >
+      <Header
+        class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto"
+        currentLang={currentLang}
+        translate={translate}
+      />
+    </header>
+
     <main class="max-w-7xl mx-auto">
       <slot />
     </main>
+
     <Footer translate={translate} />
     <GridBackground />
   </body>
