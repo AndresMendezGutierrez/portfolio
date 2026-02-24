@@ -10,14 +10,14 @@ const sortedLanguages = Object.entries(languages).sort(([codeA], [codeB]) => {
 });
 ---
 
-<menu class="relative inline-block text-left" id="language-picker">
+<div class="relative" id="language-picker">
   <button
     type="button"
-    class="flex items-center gap-x-2 px-3 py-2 text-2xl font-bold uppercase transition-all hover:opacity-80"
+    class="flex items-center gap-x-1 text-2xl font-medium uppercase px-2 pb-0.3 pt-0.5 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800"
     id="menu-button"
     aria-expanded="false"
     aria-haspopup="true"
-    aria-label="Seleccionar idioma"
+    aria-label={translate("aria_label_language_picker")}
   >
     {currentLang}
     <svg class="w-6 h-6 transition-transform duration-200" id="chevron">
@@ -25,8 +25,8 @@ const sortedLanguages = Object.entries(languages).sort(([codeA], [codeB]) => {
     </svg>
   </button>
 
-  <ul
-    class="absolute z-50 hidden w-16 origin-top-right flex-col bg-black/90 backdrop-blur-md shadow-xl focus:outline-none"
+  <menu
+    class="absolute z-50 hidden w-16 origin-top-right flex-col backdrop-blur-md shadow-xl rounded-lg"
     id="menu-items"
     role="menu"
     aria-orientation="vertical"
@@ -42,10 +42,8 @@ const sortedLanguages = Object.entries(languages).sort(([codeA], [codeB]) => {
             <a
               href={href}
               class:list={[
-                "block px-4 py-2 text-2xl uppercase transition-colors hover:bg-white/10",
-                isActive
-                  ? "text-white opacity-40 pointer-events-none"
-                  : "text-white",
+                "block text-center py-1 text-2xl uppercase transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800",
+                isActive ? " opacity-40 pointer-events-none" : "",
               ]}
               role="menuitem"
               aria-current={isActive ? "page" : undefined}
@@ -57,8 +55,8 @@ const sortedLanguages = Object.entries(languages).sort(([codeA], [codeB]) => {
         );
       })
     }
-  </ul>
-</menu>
+  </menu>
+</div>
 
 <script>
   const picker = document.getElementById("language-picker");

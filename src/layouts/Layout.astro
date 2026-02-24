@@ -13,7 +13,7 @@ const { currentLang, translate } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={currentLang} class="dark">
+<html lang={currentLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={translate("head_description")} />
@@ -21,8 +21,32 @@ const { currentLang, translate } = Astro.props;
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{translate("head_title")}</title>
+
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
+      })();
+
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      } else {
+        document.documentElement.classList.add("dark");
+      }
+      window.localStorage.setItem("theme", theme);
+    </script>
   </head>
-  <body class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16">
+  <body
+    class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 transition-colors duration-300"
+  >
     <Header
       class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto"
       currentLang={currentLang}
