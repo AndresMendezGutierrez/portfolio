@@ -7,8 +7,8 @@ const { class: className, currentLang, translate } = Astro.props;
 
 <section class={`${className} flex justify-between`}>
   <p class="text-[38px] lg:text-5xl font-[workbench]">AM</p>
-  <nav class="flex items-center gap-7">
-    <ThemeButton />
+  <nav class="flex items-center gap-1 md:gap-7">
+    <ThemeButton class="hidden md:block" />
     <LanguagePicker currentLang={currentLang} translate={translate} />
     <button class="md:hidden">
       <svg class="w-6 h-6">

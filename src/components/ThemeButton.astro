@@ -1,10 +1,10 @@
 ---
-
+const { class: className } = Astro.props;
 ---
 
 <button
   id="theme-toggle"
-  class="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors"
+  class={`${className} p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors`}
 >
   <svg
     id="sun-icon"

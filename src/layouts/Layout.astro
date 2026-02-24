@@ -3,6 +3,7 @@ import type { useTranslations } from "../assets/i18n/utils";
 import Footer from "../components/Footer.astro";
 import GridBackground from "../components/GridBackground.astro";
 import Header from "../components/Header.astro";
+import ThemeButton from "../components/ThemeButton.astro";
 
 interface Props {
   currentLang: "en" | "es" | "de";
@@ -60,6 +61,8 @@ const { currentLang, translate } = Astro.props;
     <main class="max-w-7xl mx-auto">
       <slot />
     </main>
+
+    <ThemeButton class="fixed bottom-2 right-3 rounded-4xl" />
 
     <Footer translate={translate} />
     <GridBackground />
