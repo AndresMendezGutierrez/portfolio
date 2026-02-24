@@ -1,15 +1,12 @@
 export const routes = {
   en: {
-    hero: "index",
-    test: "file",
+    "404": "404",
   },
   es: {
-    hero: "index",
-    test: "file",
+    "404": "404",
   },
   de: {
-    hero: "index",
-    test: "file",
+    "404": "404",
   },
 } as const;
 
@@ -19,6 +16,10 @@ export const ui = {
     head_description:
       "Professional portfolio of a junior web developer specializing in frontend, with experience in HTML, CSS, JavaScript, modern frameworks, and aiming to become a full stack developer.",
     head_title: "Portfolio of Andrés Méndez - Web developer and programmer",
+    // Header
+    aria_label_en: "Translate to English",
+    aria_label_es: "Translate to Spanish",
+    aria_label_de: "Translate to German",
     // Intro
     intro_title: "Andrés Méndez",
     intro_subtitle: "Junior Web Developer",
@@ -77,6 +78,10 @@ export const ui = {
     head_description:
       "Portafolio profesional de un desarrollador web junior especializado en frontend, con experiencia en HTML, CSS, JavaScript, frameworks modernos y con el objetivo de evolucionar a desarrollador full stack.",
     head_title: "Portafolio de Andrés Méndez - Desarrollador web y programador",
+    // Header
+    aria_label_en: "Traducir a Inglés",
+    aria_label_es: "Traducir a Español",
+    aria_label_de: "Traducir a Alemán",
     // Intro
     intro_title: "Andrés Méndez",
     intro_subtitle: "Desarrollador Web Junior",
@@ -135,6 +140,10 @@ export const ui = {
     head_description:
       "Professionelles Portfolio eines Junior-Webentwicklers mit Schwerpunkt auf Frontend-Entwicklung und dem Ziel, sich zu einem Full-Stack-Entwickler zu entwickeln.",
     head_title: "Portfolio von Andrés Méndez - Webentwickler und Programmierer",
+    // Header
+    aria_label_en: "Übersetzen ins Englische",
+    aria_label_es: "Übersetzen ins Spanische",
+    aria_label_de: "Übersetzen ins Deutsche",
     // Intro
     intro_title: "Andrés Méndez",
     intro_subtitle: "Junior Webentwickler",

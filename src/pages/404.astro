@@ -1,0 +1,18 @@
+---
+import { useTranslations } from "../assets/i18n/utils";
+import Welcome from "../components/Welcome.astro";
+import L404 from "../layouts/L-404.astro";
+import "../styles/global.css";
+
+const currentLang = Astro.currentLocale || "en";
+
+const translate = useTranslations(currentLang as "es" | "en" | "de");
+---
+
+<L404 currentLang={currentLang} translate={translate}>
+  <p class="text-4xl">{translate("not_found_title")}</p>
+  <p class="text-xl">{translate("not_found_description")}</p>
+  <a href="/" class="text-xl">{translate("not_found_back")}</a>
+
+  <Welcome />
+</L404>

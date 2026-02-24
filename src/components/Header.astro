@@ -8,45 +8,19 @@ const { class: className, currentLang, translate } = Astro.props;
   class="fixed left-0 right-0 z-50 bg-gradient-to-b dark:from-black/100 from-white/100 to-transparent transition-opacity duration-500"
 >
   <nav class={`${className} flex justify-between`}>
-    <p class="text-[38px] lg:text-5xl font-[workbench]">
-      A M
-      <LanguagePicker currentLang={currentLang} />
-    </p>
-    <nav class="flex items-center gap-2">
+    <p class="text-[38px] lg:text-5xl font-[workbench]">AM</p>
+    <menu class="flex items-center gap-2">
       <button class="hidden sm:block">
         <svg class="w-6 h-6">
           <use href="/src/assets/icons/icons-sprite.svg#moon-icon"></use>
         </svg>
       </button>
-      <button id="lang-btn" class="relative flex items-center gap-1">
-        {currentLang}
-        <svg class="w-6 h-6">
-          <use href="/src/assets/icons/icons-sprite.svg#down-icon"></use>
-        </svg>
-        <ul id="langs" class="absolute top-full left-0 hidden">
-          <li>{currentLang}</li>
-          <li>
-            {currentLang === "en" ? "ES" : currentLang === "es" ? "EN" : "DE"}
-          </li>
-          <li>
-            {currentLang === "en" ? "DE" : currentLang === "es" ? "DE" : "EN"}
-          </li>
-        </ul>
-      </button>
+      <LanguagePicker currentLang={currentLang} translate={translate} />
       <button class="md:hidden">
         <svg class="w-6 h-6">
           <use href="/src/assets/icons/icons-sprite.svg#menu-icon"></use>
         </svg>
       </button>
-    </nav>
+    </menu>
   </nav>
 </header>
-
-<script>
-  const langBtn = document.getElementById("lang-btn");
-  const langs = document.getElementById("langs");
-
-  langBtn?.addEventListener("click", () => {
-    langs?.classList.toggle("hidden");
-  });
-</script>

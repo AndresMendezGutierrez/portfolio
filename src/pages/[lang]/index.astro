@@ -15,9 +15,10 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const translate = useTranslations(lang as "es" | "de");
+const currentLang = lang as "es" | "de";
+const translate = useTranslations(currentLang);
 ---
 
-<Layout lang={lang} translate={translate}>
+<Layout currentLang={currentLang} translate={translate}>
   <PortfolioContent translate={translate} />
 </Layout>

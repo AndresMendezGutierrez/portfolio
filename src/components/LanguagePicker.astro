@@ -1,0 +1,96 @@
+---
+import { getTranslatedPath, languages } from "../assets/i18n/utils";
+
+const { currentLang, translate } = Astro.props;
+
+const sortedLanguages = Object.entries(languages).sort(([codeA], [codeB]) => {
+  if (codeA === currentLang) return -1;
+  if (codeB === currentLang) return 1;
+  return 0;
+});
+---
+
+<menu class="relative inline-block text-left" id="language-picker">
+  <button
+    type="button"
+    class="flex items-center gap-x-2 px-3 py-2 text-2xl font-bold uppercase transition-all hover:opacity-80"
+    id="menu-button"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-label="Seleccionar idioma"
+  >
+    {currentLang}
+    <svg class="w-6 h-6 transition-transform duration-200" id="chevron">
+      <use href="/src/assets/icons/icons-sprite.svg#down-icon"></use>
+    </svg>
+  </button>
+
+  <ul
+    class="absolute z-50 hidden w-16 origin-top-right flex-col bg-black/90 backdrop-blur-md shadow-xl focus:outline-none"
+    id="menu-items"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="menu-button"
+  >
+    {
+      sortedLanguages.map(([code]) => {
+        const href = getTranslatedPath(Astro.url, code);
+        const isActive = currentLang === code;
+
+        return (
+          <li role="none">
+            <a
+              href={href}
+              class:list={[
+                "block px-4 py-2 text-2xl uppercase transition-colors hover:bg-white/10",
+                isActive
+                  ? "text-white opacity-40 pointer-events-none"
+                  : "text-white",
+              ]}
+              role="menuitem"
+              aria-current={isActive ? "page" : undefined}
+              aria-label={translate(`aria_label_${code}`)}
+            >
+              {code}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</menu>
+
+<script>
+  const picker = document.getElementById("language-picker");
+  const btn = document.getElementById("menu-button");
+  const menu = document.getElementById("menu-items");
+  const chevron = document.getElementById("chevron");
+
+  function toggleMenu() {
+    const isExpanded = btn?.getAttribute("aria-expanded") === "true";
+    btn?.setAttribute("aria-expanded", (!isExpanded).toString());
+    menu?.classList.toggle("hidden");
+    menu?.classList.toggle("flex");
+    chevron?.classList.toggle("rotate-180");
+  }
+
+  btn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!picker?.contains(e.target as Node)) {
+      btn?.setAttribute("aria-expanded", "false");
+      menu?.classList.add("hidden");
+      menu?.classList.remove("flex");
+      chevron?.classList.remove("rotate-180");
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !menu?.classList.contains("hidden")) {
+      toggleMenu();
+    }
+  });
+</script>
