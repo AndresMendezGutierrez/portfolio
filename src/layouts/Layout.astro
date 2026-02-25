@@ -49,7 +49,7 @@ const { currentLang, translate } = Astro.props;
     class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 transition-colors duration-300"
   >
     <header
-      class="fixed left-0 right-0 z-50 bg-gradient-to-b dark:from-black/100 from-white/100 to-transparent transition-opacity duration-500"
+      class="fixed left-0 right-0 z-50 bg-linear-to-b dark:from-black from-white to-transparent transition-opacity duration-500"
     >
       <Header
         class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto"
@@ -62,7 +62,9 @@ const { currentLang, translate } = Astro.props;
       <slot />
     </main>
 
-    <ThemeButton class="fixed bottom-2 right-3 rounded-4xl" />
+    <ThemeButton
+      class="fixed bottom-2 right-3 rounded-4xl p-5 border border-black/15 dark:border-white/15 bg-white dark:bg-black md:hidden shadow-[0_0_10px_0_rgba(0,0,0,0.51)]"
+    />
 
     <Footer translate={translate} />
     <GridBackground />
