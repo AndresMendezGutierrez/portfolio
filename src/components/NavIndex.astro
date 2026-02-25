@@ -1,6 +1,6 @@
 ---
-// components/HamburguerMenu.astro
-const { currentLang, translate } = Astro.props;
+// components/NavIndex.astro
+const { class: className, id, currentLang, translate } = Astro.props;
 
 const navItems = [
   { id: "intro", label: "nav_intro" },
@@ -11,17 +11,14 @@ const navItems = [
 ];
 ---
 
-<aside
-  id="mobile-menu"
-  class="hidden flex-col items-center justify-center grow transition-all duration-500 ease-in-out md:hidden my-auto"
->
-  <ol class="grid items-center gap-6 text-xl font-semibold text-center">
+<nav id={id} class:list={["flex-col items-center justify-center transition-all duration-500 ease-in-out", className]}>
+  <ol class="grid items-center gap-6 text-xl font-semibold text-center md:text-right">
     {
       navItems.map((item) => (
         <li>
           <a
             href={`/${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
-            class="hover:text-zinc-500 transition-colors"
+            class="hover:text-zinc-500 transition-colors uppercase tracking-widest block py-2 md:py-1"
           >
             {translate(item.label)}
           </a>
@@ -29,4 +26,4 @@ const navItems = [
       ))
     }
   </ol>
-</aside>
+</nav>

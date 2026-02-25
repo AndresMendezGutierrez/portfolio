@@ -1,7 +1,7 @@
 ---
 // components/Header.astro
 import HamburguerButton from "./HamburguerButton.astro";
-import Index from "./Index.astro";
+import NavIndex from "./NavIndex.astro";
 import LanguagePicker from "./LanguagePicker.astro";
 import ThemeButton from "./ThemeButton.astro";
 
@@ -19,4 +19,5 @@ const { currentLang, translate } = Astro.props;
     <HamburguerButton currentLang={currentLang} translate={translate} />
   </nav>
 </section>
-<Index currentLang={currentLang} translate={translate} />
+
+<NavIndex id="mobile-menu" class="hidden md:hidden my-auto" currentLang={currentLang} translate={translate} />

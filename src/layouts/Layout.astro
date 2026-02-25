@@ -4,6 +4,7 @@ import type { useTranslations } from "../assets/i18n/utils";
 import Footer from "../components/Footer.astro";
 import GridBackground from "../components/GridBackground.astro";
 import Header from "../components/Header.astro";
+import NavIndex from "../components/NavIndex.astro";
 import ThemeButton from "../components/ThemeButton.astro";
 
 interface Props {
@@ -46,7 +47,7 @@ const { currentLang, translate } = Astro.props;
   <body class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 transition-colors duration-300">
     <header
       id="header"
-      class="fixed left-0 right-0 z-50 bg-linear-to-b dark:from-black from-white to-transparent transition-color duration-500 h-auto"
+      class="fixed left-0 right-0 z-50 bg-linear-to-b dark:from-black from-white to-transparent transition-color transition-all duration-500 h-auto"
     >
       <Header currentLang={currentLang} translate={translate} />
     </header>
@@ -54,6 +55,12 @@ const { currentLang, translate } = Astro.props;
     <main class="max-w-7xl mx-auto">
       <slot />
     </main>
+
+    <NavIndex
+      class="hidden md:flex fixed top-1/2 -translate-y-1/2 right-8 z-40"
+      currentLang={currentLang}
+      translate={translate}
+    />
 
     <ThemeButton
       class="fixed bottom-2 right-3 rounded-4xl p-5 border border-black/15 dark:border-white/15 bg-white dark:bg-black md:hidden shadow-[0_0_10px_0_rgba(0,0,0,0.51)]"

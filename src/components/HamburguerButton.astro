@@ -21,42 +21,51 @@ const { translate } = Astro.props;
   const btn = document.getElementById("hamburger-btn");
   const menu = document.getElementById("mobile-menu");
   const header = document.getElementById("header");
-  const line1 = document.getElementById("line-1");
-  const line2 = document.getElementById("line-2");
-  const line3 = document.getElementById("line-3");
+  const lines = [
+    document.getElementById("line-1"),
+    document.getElementById("line-2"),
+    document.getElementById("line-3"),
+  ];
 
   function toggleMenu() {
-    const isExpanded = btn?.getAttribute("aria-expanded") === "true";
+    const isOpening = btn?.getAttribute("aria-expanded") === "false";
+    btn?.setAttribute("aria-expanded", isOpening.toString());
 
-    btn?.setAttribute("aria-expanded", (!isExpanded).toString());
+    if (isOpening) {
+      header?.classList.add("h-screen", "bg-white/50", "dark:bg-black/50");
+      document.body.classList.add("overflow-hidden");
 
-    header?.classList.toggle("h-screen");
-    menu?.classList.toggle("py-[20vh]");
-
-    if (!isExpanded) {
-      header?.classList.add("bg-white/50", "dark:bg-black/50");
       menu?.classList.remove("hidden");
       setTimeout(() => {
-        menu?.classList.add("min-h-[90vh]");
+        menu?.classList.add("min-h-[90vh]", "py-[20vh]");
       }, 10);
+
+      lines[0]?.classList.add("rotate-45", "translate-x-0.5");
+      lines[1]?.classList.add("opacity-0");
+      lines[2]?.classList.add("-rotate-45", "translate-x-0.5", "translate-y-0.25");
     } else {
-      header?.classList.remove("bg-white/50", "dark:bg-black/50");
-      menu?.classList.remove("min-h-[90vh]");
-      setTimeout(() => menu?.classList.add("hidden"), 10);
+      header?.classList.remove("h-screen", "bg-white/50", "dark:bg-black/50");
+      document.body.classList.remove("overflow-hidden");
+
+      menu?.classList.remove("min-h-[90vh]", "py-[20vh]");
+
+      setTimeout(() => {
+        if (btn?.getAttribute("aria-expanded") === "false") {
+          menu?.classList.add("hidden");
+        }
+      }, 500);
+
+      lines[0]?.classList.remove("rotate-45", "translate-x-0.5");
+      lines[1]?.classList.remove("opacity-0");
+      lines[2]?.classList.remove("-rotate-45", "translate-x-0.5", "translate-y-0.25");
     }
-
-    document.body.classList.toggle("overflow-hidden");
-
-    line1?.classList.toggle("rotate-45");
-    line1?.classList.toggle("translate-x-0.5");
-    line2?.classList.toggle("opacity-0");
-    line3?.classList.toggle("-rotate-45");
-    line3?.classList.toggle("translate-x-0.5");
-    line3?.classList.toggle("translate-y-0.25");
   }
 
   btn?.addEventListener("click", toggleMenu);
 
-  const navLinks = menu?.querySelectorAll("a");
-  navLinks?.forEach((link) => link.addEventListener("click", toggleMenu));
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768 && btn?.getAttribute("aria-expanded") === "true") {
+      toggleMenu();
+    }
+  });
 </script>
