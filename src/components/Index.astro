@@ -1,0 +1,32 @@
+---
+// components/HamburguerMenu.astro
+const { currentLang, translate } = Astro.props;
+
+const navItems = [
+  { id: "intro", label: "nav_intro" },
+  { id: "about", label: "nav_about" },
+  { id: "skills", label: "nav_skills" },
+  { id: "projects", label: "nav_projects" },
+  { id: "contact", label: "nav_contact" },
+];
+---
+
+<aside
+  id="mobile-menu"
+  class="hidden flex-col items-center justify-center grow transition-all duration-500 ease-in-out md:hidden my-auto"
+>
+  <ol class="grid items-center gap-6 text-xl font-semibold text-center">
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={`/${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
+            class="hover:text-zinc-500 transition-colors"
+          >
+            {translate(item.label)}
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+</aside>

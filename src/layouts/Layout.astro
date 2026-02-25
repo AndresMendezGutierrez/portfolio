@@ -1,4 +1,5 @@
 ---
+// layouts/Layout.astro
 import type { useTranslations } from "../assets/i18n/utils";
 import Footer from "../components/Footer.astro";
 import GridBackground from "../components/GridBackground.astro";
@@ -25,10 +26,7 @@ const { currentLang, translate } = Astro.props;
 
     <script is:inline>
       const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
           return localStorage.getItem("theme");
         }
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -45,17 +43,12 @@ const { currentLang, translate } = Astro.props;
       window.localStorage.setItem("theme", theme);
     </script>
   </head>
-  <body
-    class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 transition-colors duration-300"
-  >
+  <body class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 transition-colors duration-300">
     <header
-      class="fixed left-0 right-0 z-50 bg-linear-to-b dark:from-black from-white to-transparent transition-opacity duration-500"
+      id="header"
+      class="fixed left-0 right-0 z-50 bg-linear-to-b dark:from-black from-white to-transparent transition-color duration-500 h-auto"
     >
-      <Header
-        class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto"
-        currentLang={currentLang}
-        translate={translate}
-      />
+      <Header currentLang={currentLang} translate={translate} />
     </header>
 
     <main class="max-w-7xl mx-auto">

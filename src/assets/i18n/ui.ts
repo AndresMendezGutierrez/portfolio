@@ -32,6 +32,7 @@ export const ui = {
     nav_projects: "Projects",
     nav_contact: "Contact",
     nav_version: "Version",
+    nav_arial_label: "Open menu",
     // About
     about_title: "About",
     about_greeting: "Hello there!",
@@ -44,25 +45,20 @@ export const ui = {
     // What I do
     what_i_do_title: "What I do",
     what_i_do_web_development_title: "Web Development",
-    what_i_do_web_development_description:
-      "Creation of modern, fast websites adapted to any device.",
+    what_i_do_web_development_description: "Creation of modern, fast websites adapted to any device.",
     what_i_do_frontend_title: "Frontend Development",
-    what_i_do_frontend_description:
-      "Attractive and functional interfaces focused on the user experience.",
+    what_i_do_frontend_description: "Attractive and functional interfaces focused on the user experience.",
     what_i_do_maintenance_title: "Maintenance and improvements",
-    what_i_do_maintenance_description:
-      "Content updates, bug fixes, and optimization of existing sites.",
+    what_i_do_maintenance_description: "Content updates, bug fixes, and optimization of existing sites.",
     what_i_do_backend_title: "Backend Development",
     what_i_do_backend_description:
       "I have worked with Firebase as a backend-as-a-service, implementing user authentication and data management in web applications, while continuing to learn about backend development.",
     // Skills
     skills_title: "Skills",
-    skills_description:
-      "These are some of the technologies and tools I have worked with in my learning process.",
+    skills_description: "These are some of the technologies and tools I have worked with in my learning process.",
     // Contact
     contact_title: "Contact",
-    contact_description:
-      "If you want to contact me, you can do it through the following form.",
+    contact_description: "If you want to contact me, you can do it through the following form.",
     contact_name: "Name",
     contact_email: "Email",
     contact_message: "Message",
@@ -96,6 +92,7 @@ export const ui = {
     nav_projects: "Proyectos",
     nav_contact: "Contacto",
     nav_version: "Versión",
+    nav_arial_label: "Abrir menú",
     // About
     about_title: "Sobre mí",
     about_greeting: "¡Hola!",
@@ -111,8 +108,7 @@ export const ui = {
     what_i_do_web_development_description:
       "Creación de sitios web modernos, rápidos y adaptados a cualquier dispositivo.",
     what_i_do_frontend_title: "Desarrollo Frontend",
-    what_i_do_frontend_description:
-      "Interfaces atractivas y funcionales centradas en la experiencia del usuario.",
+    what_i_do_frontend_description: "Interfaces atractivas y funcionales centradas en la experiencia del usuario.",
     what_i_do_maintenance_title: "Mantenimiento y mejoras",
     what_i_do_maintenance_description:
       "Actualización de contenidos, corrección de errores y optimización de sitios existentes.",
@@ -125,8 +121,7 @@ export const ui = {
       "Estas son algunas de las tecnologías y herramientas con las que he trabajado en mi proceso de aprendizaje.",
     // Contact
     contact_title: "Contacto",
-    contact_description:
-      "Si deseas contactarme, puedes hacerlo a través del siguiente formulario.",
+    contact_description: "Si deseas contactarme, puedes hacerlo a través del siguiente formulario.",
     contact_name: "Nombre",
     contact_email: "Correo electrónico",
     contact_message: "Mensaje",
@@ -160,6 +155,7 @@ export const ui = {
     nav_projects: "Projekte",
     nav_contact: "Kontakt",
     nav_version: "Version",
+    nav_arial_label: "Öffne das Menü",
     // About
     about_title: "Über mich",
     about_greeting: "Hallo!",
@@ -189,8 +185,7 @@ export const ui = {
       "Dies sind einige der Technologien und Werkzeuge, mit denen ich in meinem Lernprozess gearbeitet habe.",
     // Contact
     contact_title: "Kontakt",
-    contact_description:
-      "Wenn Sie mich kontaktieren möchten, können Sie dies über das folgende Formular tun.",
+    contact_description: "Wenn Sie mich kontaktieren möchten, können Sie dies über das folgende Formular tun.",
     contact_name: "Name",
     contact_email: "E-Mail",
     contact_message: "Nachricht",

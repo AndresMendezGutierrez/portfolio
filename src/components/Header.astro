@@ -1,22 +1,22 @@
 ---
-import HamburguerMenu from "./HamburguerMenu.astro";
+// components/Header.astro
+import HamburguerButton from "./HamburguerButton.astro";
+import Index from "./Index.astro";
 import LanguagePicker from "./LanguagePicker.astro";
 import ThemeButton from "./ThemeButton.astro";
 
-const { class: className, currentLang, translate } = Astro.props;
+const { currentLang, translate } = Astro.props;
 ---
 
-<section class={`${className} flex justify-between`}>
-  <p class="text-[38px] lg:text-5xl font-[workbench]">AM</p>
+<section
+  id="h-section"
+  class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto flex justify-between w-full"
+>
+  <p class="text-[38px] lg:text-5xl font-[workbench] tracking-widest">AM</p>
   <nav class="flex items-center gap-1 md:gap-7">
     <ThemeButton class="hidden md:block p-1 rounded-lg" />
     <LanguagePicker currentLang={currentLang} translate={translate} />
-
-    <HamburguerMenu currentLang={currentLang} translate={translate} />
-    <!-- <button class="md:hidden">
-      <svg class="w-6 h-6">
-        <use href="/src/assets/icons/icons-sprite.svg#menu-icon"></use>
-      </svg>
-    </button> -->
+    <HamburguerButton currentLang={currentLang} translate={translate} />
   </nav>
 </section>
+<Index currentLang={currentLang} translate={translate} />

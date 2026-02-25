@@ -1,0 +1,62 @@
+---
+// components/HamburguerButton.astro
+const { translate } = Astro.props;
+---
+
+<button
+  id="hamburger-btn"
+  class="md:hidden z-50 relative p-2 text-zinc-900 dark:text-white"
+  aria-label={translate("nav_arial_label")}
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
+  <div class="w-6.5 h-5 relative flex flex-col justify-between">
+    <span id="line-1" class="w-full h-0.75 bg-current transition-all duration-300 origin-left"></span>
+    <span id="line-2" class="w-full h-0.75 bg-current transition-all duration-300"></span>
+    <span id="line-3" class="w-full h-0.75 bg-current transition-all duration-300 origin-left"></span>
+  </div>
+</button>
+
+<script>
+  const btn = document.getElementById("hamburger-btn");
+  const menu = document.getElementById("mobile-menu");
+  const header = document.getElementById("header");
+  const line1 = document.getElementById("line-1");
+  const line2 = document.getElementById("line-2");
+  const line3 = document.getElementById("line-3");
+
+  function toggleMenu() {
+    const isExpanded = btn?.getAttribute("aria-expanded") === "true";
+
+    btn?.setAttribute("aria-expanded", (!isExpanded).toString());
+
+    header?.classList.toggle("h-screen");
+    menu?.classList.toggle("py-[20vh]");
+
+    if (!isExpanded) {
+      header?.classList.add("bg-white/50", "dark:bg-black/50");
+      menu?.classList.remove("hidden");
+      setTimeout(() => {
+        menu?.classList.add("min-h-[90vh]");
+      }, 10);
+    } else {
+      header?.classList.remove("bg-white/50", "dark:bg-black/50");
+      menu?.classList.remove("min-h-[90vh]");
+      setTimeout(() => menu?.classList.add("hidden"), 10);
+    }
+
+    document.body.classList.toggle("overflow-hidden");
+
+    line1?.classList.toggle("rotate-45");
+    line1?.classList.toggle("translate-x-0.5");
+    line2?.classList.toggle("opacity-0");
+    line3?.classList.toggle("-rotate-45");
+    line3?.classList.toggle("translate-x-0.5");
+    line3?.classList.toggle("translate-y-0.25");
+  }
+
+  btn?.addEventListener("click", toggleMenu);
+
+  const navLinks = menu?.querySelectorAll("a");
+  navLinks?.forEach((link) => link.addEventListener("click", toggleMenu));
+</script>
