@@ -6,7 +6,7 @@ const firebaseConfig = {
   projectId: "padawan-portfolio",
   storageBucket: "padawan-portfolio.firebasestorage.app",
   messagingSenderId: "831376796485",
-  appId: "1:831376796485:web:43b8769460de5716f6ec2c"
+  appId: "1:831376796485:web:43b8769460de5716f6ec2c",
 };
 
 export const app = initializeApp(firebaseConfig);

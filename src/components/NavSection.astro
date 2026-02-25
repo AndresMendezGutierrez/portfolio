@@ -14,11 +14,7 @@ try {
 ---
 
 <nav class={`flex gap-2 md:gap-4 ${className}`}>
-  {
-    show_versions && (
-      <NavListItem href="#">{translate("nav_version")}</NavListItem>
-    )
-  }
+  {show_versions && <NavListItem href="#">{translate("nav_version")}</NavListItem>}
   <NavListItem href="#intro">
     {translate("nav_intro")}
   </NavListItem>

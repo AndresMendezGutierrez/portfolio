@@ -4,25 +4,17 @@ import Badge from "./Badge.astro";
 const { translate } = Astro.props;
 ---
 
-<section
-  class="flex flex-col gap-4 justify-center items-center sm:gap-8 lg:gap-10"
->
-  <h1
-    class="w-3/5 text-center text-5xl font-[workbench] sm:text-6xl lg:text-8xl"
-  >
+<section class="flex flex-col gap-4 justify-center items-center sm:gap-8 lg:gap-10">
+  <h1 class="w-3/5 text-center text-5xl font-[workbench] sm:text-6xl lg:text-8xl">
     {translate("intro_title")}
   </h1>
-  <h2
-    class="text-lg sm:text-2xl lg:text-[28px]/[100%] font-semibold lg:mt-2 lg:mb-1"
-  >
+  <h2 class="text-lg sm:text-2xl lg:text-[28px]/[100%] font-semibold lg:mt-2 lg:mb-1">
     {translate("intro_subtitle")}
   </h2>
   <Badge>{translate("intro_status")}</Badge>
 </section>
 
-<button
-  class="absolute bottom-8 md:bottom-12 animate-[bounce_3s_linear_infinite]"
->
+<button class="absolute bottom-8 md:bottom-12 animate-[bounce_3s_linear_infinite]">
   <svg class="w-22 h-22">
     <use href="/src/assets/icons/icons-sprite.svg#down-icon"></use>
   </svg>

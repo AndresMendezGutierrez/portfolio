@@ -34,10 +34,7 @@ async function fetchTemplate() {
  * @param key - The Remote Config parameter key
  * @param defaultValue - Fallback value if key is not found
  */
-export async function getRemoteConfigValue(
-  key: string,
-  defaultValue: string = ""
-): Promise<string> {
+export async function getRemoteConfigValue(key: string, defaultValue: string = ""): Promise<string> {
   const template = await fetchTemplate();
 
   if (!template?.parameters?.[key]) {
@@ -61,17 +58,12 @@ export async function getRemoteConfigValue(
  * @param defaults - Object with { parameterKey: defaultValue } pairs
  * @returns Object with the same keys but resolved values from Remote Config
  */
-export async function getRemoteConfigValues(
-  defaults: Record<string, string>
-): Promise<Record<string, string>> {
+export async function getRemoteConfigValues(defaults: Record<string, string>): Promise<Record<string, string>> {
   const template = await fetchTemplate();
   const result: Record<string, string> = {};
 
   for (const [key, defaultValue] of Object.entries(defaults)) {
-    if (
-      template?.parameters?.[key]?.defaultValue &&
-      "value" in template.parameters[key].defaultValue
-    ) {
+    if (template?.parameters?.[key]?.defaultValue && "value" in template.parameters[key].defaultValue) {
       result[key] = template.parameters[key].defaultValue.value as string;
     } else {
       result[key] = defaultValue;
@@ -87,10 +79,7 @@ export async function getRemoteConfigValues(
  * @param key - The Remote Config parameter key
  * @param defaultValue - Fallback value if key is not found
  */
-export async function getRemoteConfigBoolean(
-  key: string,
-  defaultValue: boolean = false
-): Promise<boolean> {
+export async function getRemoteConfigBoolean(key: string, defaultValue: boolean = false): Promise<boolean> {
   const value = await getRemoteConfigValue(key, String(defaultValue));
   return value.toLowerCase() === "true";
 }
@@ -101,10 +90,7 @@ export async function getRemoteConfigBoolean(
  * @param key - The Remote Config parameter key
  * @param defaultValue - Fallback value if key is not found
  */
-export async function getRemoteConfigNumber(
-  key: string,
-  defaultValue: number = 0
-): Promise<number> {
+export async function getRemoteConfigNumber(key: string, defaultValue: number = 0): Promise<number> {
   const value = await getRemoteConfigValue(key, String(defaultValue));
   const parsed = Number(value);
   return isNaN(parsed) ? defaultValue : parsed;

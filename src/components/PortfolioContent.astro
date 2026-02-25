@@ -9,10 +9,7 @@ import WhatIDo from "./WhatIDo.astro";
 const { translate } = Astro.props;
 ---
 
-<MainSection
-  id="intro"
-  class="min-h-screen flex flex-col justify-center items-center relative"
->
+<MainSection id="intro" class="min-h-screen flex flex-col justify-center items-center relative">
   <Intro translate={translate} />
 </MainSection>
 <MainSection id="about" class="flex flex-col gap-4 py-10">

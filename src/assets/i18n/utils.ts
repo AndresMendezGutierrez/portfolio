@@ -41,13 +41,9 @@ export function getTranslatedPath(url: URL, targetLang: string) {
     return langCode === defaultLang ? "/" : `/${langCode}/`;
   }
 
-  const pageKey = (Object.keys(routes[defaultLang]) as PageKey[]).find(
-    (key) => {
-      return Object.values(routes).some(
-        (langRoutes) => langRoutes[key] === slug,
-      );
-    },
-  );
+  const pageKey = (Object.keys(routes[defaultLang]) as PageKey[]).find((key) => {
+    return Object.values(routes).some((langRoutes) => langRoutes[key] === slug);
+  });
 
   if (!pageKey) {
     return langCode === defaultLang ? "/" : `/${langCode}/`;
@@ -55,7 +51,5 @@ export function getTranslatedPath(url: URL, targetLang: string) {
 
   const translatedSlug = routes[langCode][pageKey];
 
-  return langCode === defaultLang
-    ? `/${translatedSlug}`
-    : `/${langCode}/${translatedSlug}`;
+  return langCode === defaultLang ? `/${translatedSlug}` : `/${langCode}/${translatedSlug}`;
 }

@@ -2,9 +2,7 @@
 const { class: className } = Astro.props;
 ---
 
-<button
-  class={`${className} theme-toggle-btn hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors`}
->
+<button class={`${className} theme-toggle-btn hover:bg-gray-100 dark:hover:bg-zinc-800 transition-colors`}>
   <svg class="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 hidden dark:block">
     <use href="/src/assets/icons/icons-sprite.svg#sun-icon"></use>
   </svg>
