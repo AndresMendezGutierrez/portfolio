@@ -20,8 +20,10 @@ const { translate } = Astro.props;
   <Badge>{translate("intro_status")}</Badge>
 </section>
 
-<button>
-  <svg class="w-9 h-9">
+<button
+  class="absolute bottom-8 md:bottom-12 animate-[bounce_5s_linear_infinite]"
+>
+  <svg class="w-22 h-22">
     <use href="/src/assets/icons/icons-sprite.svg#down-icon"></use>
   </svg>
 </button>

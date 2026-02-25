@@ -1,0 +1,83 @@
+---
+import { getTranslatedPath } from "../assets/i18n/utils";
+
+const { currentLang, translate } = Astro.props;
+
+const navItems = [
+  { id: "intro", label: "nav_intro" },
+  { id: "about", label: "nav_about" },
+  { id: "skills", label: "nav_skills" },
+  { id: "projects", label: "nav_projects" },
+  { id: "contact", label: "nav_contact" },
+];
+---
+
+<button
+  id="hamburger-btn"
+  class="md:hidden z-50 relative p-2 text-zinc-900 dark:text-white"
+  aria-label="Abrir menú"
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
+  <div class="w-6 h-5 relative flex flex-col justify-between overflow-hidden">
+    <span
+      class="w-full h-0.5 bg-current transition-all duration-300 origin-left"
+      id="line-1"></span>
+    <span
+      class="w-full h-0.5 bg-current transition-all duration-300"
+      id="line-2"></span>
+    <span
+      class="w-full h-0.5 bg-current transition-all duration-300 origin-left"
+      id="line-3"></span>
+  </div>
+</button>
+
+<div
+  id="mobile-menu"
+  class="absolute top-20 left-0 w-full z-50 flex flex-col items-center justify-center translate-x-full transition-transform duration-500 ease-in-out md:hidden after:fixed after:inset-0 after:-z-10 after:bg-black/40 after:backdrop-blur-sm after:content-['']"
+>
+  <nav class="flex flex-col items-center gap-8 text-3xl font-bold italic">
+    {
+      navItems.map((item) => (
+        <a
+          href={`/${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
+          class="hover:text-zinc-500 transition-colors uppercase"
+          role="menuitem"
+        >
+          {translate(item.label)}
+        </a>
+      ))
+    }
+  </nav>
+</div>
+
+<script>
+  const btn = document.getElementById("hamburger-btn");
+  const menu = document.getElementById("mobile-menu");
+  const line1 = document.getElementById("line-1");
+  const line2 = document.getElementById("line-2");
+  const line3 = document.getElementById("line-3");
+
+  function toggleMenu() {
+    const isExpanded = btn?.getAttribute("aria-expanded") === "true";
+
+    btn?.setAttribute("aria-expanded", (!isExpanded).toString());
+    btn?.setAttribute("aria-label", isExpanded ? "Abrir menú" : "Cerrar menú");
+
+    menu?.classList.toggle("translate-x-full");
+
+    document.body.classList.toggle("overflow-hidden");
+
+    line1?.classList.toggle("rotate-49");
+    line1?.classList.toggle("translate-x-[2px]");
+    line2?.classList.toggle("opacity-0");
+    line2?.classList.toggle("translate-x-full");
+    line3?.classList.toggle("-rotate-49");
+    line3?.classList.toggle("translate-x-[2px]");
+  }
+
+  btn?.addEventListener("click", toggleMenu);
+
+  const navLinks = menu?.querySelectorAll("a");
+  navLinks?.forEach((link) => link.addEventListener("click", toggleMenu));
+</script>

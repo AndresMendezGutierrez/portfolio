@@ -29,6 +29,7 @@ export const ui = {
     nav_intro: "Intro",
     nav_about: "About",
     nav_skills: "Skills",
+    nav_projects: "Projects",
     nav_contact: "Contact",
     nav_version: "Version",
     // About
@@ -92,6 +93,7 @@ export const ui = {
     nav_intro: "Intro",
     nav_about: "Sobre mí",
     nav_skills: "Habilidades",
+    nav_projects: "Proyectos",
     nav_contact: "Contacto",
     nav_version: "Versión",
     // About
@@ -155,6 +157,7 @@ export const ui = {
     nav_intro: "Intro",
     nav_about: "Über mich",
     nav_skills: "Fähigkeiten",
+    nav_projects: "Projekte",
     nav_contact: "Kontakt",
     nav_version: "Version",
     // About
