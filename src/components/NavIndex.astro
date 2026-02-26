@@ -11,19 +11,32 @@ const navItems = [
 ];
 ---
 
-<nav id={id} class:list={["flex-col items-center justify-center transition-all duration-500 ease-in-out", className]}>
+<nav id={id} class:list={["flex-col items-center justify-center transition-all duration-500", className]}>
   <ol class="grid items-center gap-6 text-xl font-semibold text-center md:text-right">
     {
       navItems.map((item) => (
-        <li>
+        <li class="relative group">
           <a
             href={`/${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
-            class="hover:text-zinc-500 transition-colors uppercase tracking-widest block py-2 md:py-1"
+            data-section={item.id}
+            class="nav-link flex items-center justify-center md:justify-end gap-3 hover:text-zinc-500 transition-all uppercase tracking-widest py-2 md:py-1"
           >
-            {translate(item.label)}
+            <span class="active-indicator hidden w-2 h-6 bg-primary rounded-full" />
+            <span class="link-text">{translate(item.label)}</span>
           </a>
         </li>
       ))
     }
   </ol>
 </nav>
+
+<style>
+  @reference "../styles/global.css";
+
+  .nav-link.active {
+    @apply scale-110 text-primary;
+  }
+  .nav-link.active .active-indicator {
+    @apply block;
+  }
+</style>
