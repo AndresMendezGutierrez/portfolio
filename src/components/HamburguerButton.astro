@@ -21,6 +21,8 @@ const { translate } = Astro.props;
   const btn = document.getElementById("hamburger-btn");
   const menu = document.getElementById("mobile-menu");
   const header = document.getElementById("header");
+  const langPicker = document.getElementById("language-picker");
+
   const lines = [
     document.getElementById("line-1"),
     document.getElementById("line-2"),
@@ -32,8 +34,10 @@ const { translate } = Astro.props;
     btn?.setAttribute("aria-expanded", isOpening.toString());
 
     if (isOpening) {
-      header?.classList.add("h-screen", "bg-white/50", "dark:bg-black/50");
+      header?.classList.add("h-screen", "bg-white/90", "dark:bg-black/90");
       document.body.classList.add("overflow-hidden");
+
+      langPicker?.classList.add("pointer-events-none");
 
       menu?.classList.remove("hidden");
       setTimeout(() => {
@@ -44,8 +48,10 @@ const { translate } = Astro.props;
       lines[1]?.classList.add("opacity-0");
       lines[2]?.classList.add("-rotate-45", "translate-x-0.5", "translate-y-0.25");
     } else {
-      header?.classList.remove("h-screen", "bg-white/50", "dark:bg-black/50");
+      header?.classList.remove("h-screen", "bg-white/90", "dark:bg-black/90");
       document.body.classList.remove("overflow-hidden");
+
+      langPicker?.classList.remove("pointer-events-none");
 
       menu?.classList.remove("min-h-[90vh]", "py-[20vh]");
 
