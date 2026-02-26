@@ -1,0 +1,34 @@
+---
+import { getRemoteConfigBoolean } from "../firebase/remoteConfig";
+import NavListItem from "./NavListItem.astro";
+
+const { translate, class: className } = Astro.props;
+let show_versions: boolean = false;
+try {
+  const value = await getRemoteConfigBoolean("menu_versions");
+  show_versions = value;
+  console.log("show_versions", show_versions);
+} catch (e) {
+  console.warn("Failed to parse skills from Remote Config, using defaults.", e);
+}
+---
+
+<nav class={`flex gap-2 md:gap-4 ${className}`}>
+  {
+    show_versions && (
+      <NavListItem href="#">{translate("nav_version")}</NavListItem>
+    )
+  }
+  <NavListItem href="#intro">
+    {translate("nav_intro")}
+  </NavListItem>
+  <NavListItem href="#about">
+    {translate("nav_about")}
+  </NavListItem>
+  <NavListItem href="#skills">
+    {translate("nav_skills")}
+  </NavListItem>
+  <NavListItem href="#contact">
+    {translate("nav_contact")}
+  </NavListItem>
+</nav>

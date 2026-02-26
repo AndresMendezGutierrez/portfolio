@@ -1,0 +1,159 @@
+---
+const { translate } = Astro.props;
+---
+
+<h3>{translate("contact_title")}</h3>
+<p class="mb-5">
+    {translate("contact_description")}
+</p>
+
+<form class="max-w-sm mx-auto">
+    <div>
+        <label
+            for="countries"
+            class="block mb-2.5 text-sm font-medium text-heading"
+            >How would you like to contact me?</label
+        >
+        <select
+            id="countries"
+            class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+        >
+            <option selected>Choose an option</option>
+            <option value="email">Email</option>
+            <option value="phone">Phone</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="github">GitHub</option>
+        </select>
+    </div>
+
+    <fieldset>
+        <legend class="sr-only">And a language</legend>
+
+        <div class="flex items-center mb-4">
+            <input
+                id="country-option-1"
+                type="radio"
+                name="countries"
+                value="USA"
+                class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default appearance-none"
+                checked
+            />
+            <label
+                for="country-option-1"
+                class="select-none ms-2 text-sm font-medium text-heading"
+            >
+                English
+            </label>
+        </div>
+
+        <div class="flex items-center mb-4">
+            <input
+                id="country-option-2"
+                type="radio"
+                name="countries"
+                value="Germany"
+                class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default appearance-none"
+            />
+            <label
+                for="country-option-2"
+                class="select-none ms-2 text-sm font-medium text-heading"
+            >
+                Deutsch
+            </label>
+        </div>
+
+        <div class="flex items-center mb-4">
+            <input
+                id="country-option-3"
+                type="radio"
+                name="countries"
+                value="Spain"
+                class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default appearance-none"
+            />
+            <label
+                for="country-option-3"
+                class="select-none ms-2 text-sm font-medium text-heading"
+            >
+                Español
+            </label>
+        </div>
+
+        <div class="flex items-center">
+            <input
+                id="option-disabled"
+                type="radio"
+                name="countries"
+                value="China"
+                class="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default appearance-none"
+                disabled
+            />
+            <label
+                for="option-disabled"
+                class="block ms-2 text-sm font-medium text-fg-disabled select-none"
+            >
+                中文 (disabled)
+            </label>
+        </div>
+    </fieldset>
+</form>
+
+<form class="max-w-sm mx-auto">
+    <div class="mb-5">
+        <label for="email" class="block mb-2.5 text-sm font-medium text-heading"
+            >Your email</label
+        >
+        <input
+            type="email"
+            id="email"
+            class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body"
+            placeholder="username@domain.com"
+            required
+        />
+    </div>
+    <div>
+        <label
+            for="visitors"
+            class="block mb-2.5 text-sm font-medium text-heading">Subject</label
+        >
+        <input
+            type="text"
+            id="visitors"
+            class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-2.5 py-2 shadow-xs placeholder:text-body"
+            placeholder=""
+            required
+        />
+    </div>
+    <div>
+        <label
+            for="visitors"
+            class="block mb-2.5 text-sm font-medium text-heading">Message</label
+        >
+        <input
+            type="text"
+            id="visitors"
+            class="bg-neutral-secondary-medium border border-default-medium text-heading text-base rounded-base focus:ring-brand focus:border-brand block w-full px-4 py-3.5 shadow-xs placeholder:text-body"
+            placeholder=""
+            required
+        />
+    </div>
+    <div class="mb-5"></div>
+    <label for="remember" class="flex items-center mb-5">
+        <input
+            id="remember"
+            type="checkbox"
+            value=""
+            class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
+            required
+        />
+        <p class="ms-2 text-sm font-medium text-heading select-none">
+            I agree with the <a href="#" class="text-fg-brand hover:underline"
+                >terms and conditions</a
+            >.
+        </p>
+    </label>
+    <button
+        type="submit"
+        class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none"
+        >Submit</button
+    >
+</form>

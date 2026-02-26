@@ -1,0 +1,24 @@
+---
+import SkillsCarousel from "./SkillsCarousel.astro";
+import { getRemoteConfigValue } from "../firebase/remoteConfig";
+
+const { translate } = Astro.props;
+
+let skills: { name: string; icon: string; id: number }[] | undefined;
+
+try {
+  const skillsJson = await getRemoteConfigValue("skills", "");
+  if (skillsJson) {
+    skills = JSON.parse(skillsJson);
+  }
+} catch (e) {
+  console.warn("Failed to parse skills from Remote Config, using defaults.", e);
+}
+---
+
+<h3>{translate("skills_title")}</h3>
+<p>
+  {translate("skills_description")}
+</p>
+
+<SkillsCarousel skills={skills} />

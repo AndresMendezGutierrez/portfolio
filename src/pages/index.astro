@@ -1,0 +1,36 @@
+---
+import { langList } from "../assets/i18n/translationData";
+import { useTranslations } from "../assets/i18n/utils";
+import About from "../components/About.astro";
+import Contact from "../components/Contact.astro";
+import Intro from "../components/Intro.astro";
+import MainSection from "../components/MainSection.astro";
+import Skills from "../components/Skills.astro";
+import WhatIDo from "../components/WhatIDo.astro";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+
+const currentLang = Astro.currentLocale;
+const translate = useTranslations(currentLang as keyof typeof langList);
+---
+
+<Layout
+  tittle={translate("head_title")}
+  description={translate("head_description")}
+  currentLang={currentLang}
+  translate={translate}
+>
+  <Intro translate={translate} id="intro" />
+  <MainSection id="about" class="flex flex-col gap-4 py-10">
+    <About translate={translate} />
+  </MainSection>
+  <MainSection id="what-i-do" class="grid justify-center gap-4">
+    <WhatIDo translate={translate} />
+  </MainSection>
+  <MainSection id="skills" class="flex flex-col gap-4 py-10">
+    <Skills translate={translate} />
+  </MainSection>
+  <MainSection id="contact">
+    <Contact translate={translate} />
+  </MainSection>
+</Layout>

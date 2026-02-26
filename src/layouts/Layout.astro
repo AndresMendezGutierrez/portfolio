@@ -1,0 +1,26 @@
+---
+import BackgroundPrimary from "../components/BackgroundPrimary.astro";
+import Footer from "../components/Footer.astro";
+
+const { currentLang, translate } = Astro.props;
+---
+
+<!doctype html>
+<html lang={currentLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={translate("head_description")} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{translate("head_title")}</title>
+  </head>
+  <body class="px-8">
+    <main>
+      <slot />
+    </main>
+    <Footer translate={translate} />
+    <BackgroundPrimary />
+  </body>
+</html>
