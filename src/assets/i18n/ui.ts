@@ -29,6 +29,7 @@ export const ui = {
     nav_intro: "Intro",
     nav_about: "About",
     nav_skills: "Skills",
+    nav_wid: "What I Do",
     nav_projects: "Projects",
     nav_contact: "Contact",
     nav_version: "Version",
@@ -43,22 +44,21 @@ export const ui = {
     about_paragraph_1:
       "As you may have noticed, my name is Andrés Méndez and I am a programmer with experience in the development of modern, functional and optimized websites for a good user experience. I am passionate about technology, enjoying learning new tools and constantly improving my skills to face new challenges and opportunities where I can contribute, learn from a team and continue evolving professionally.",
     // What I do
-    what_i_do_title: "What I do",
-    what_i_do_web_development_title: "Web Development",
-    what_i_do_web_development_description: "Creation of modern, fast websites adapted to any device.",
-    what_i_do_frontend_title: "Frontend Development",
-    what_i_do_frontend_description: "Attractive and functional interfaces focused on the user experience.",
-    what_i_do_maintenance_title: "Maintenance and improvements",
-    what_i_do_maintenance_description: "Content updates, bug fixes, and optimization of existing sites.",
-    what_i_do_backend_title: "Backend Development",
-    what_i_do_backend_description:
+    wid_title: "What I do",
+    wid_web_development_title: "Web Development",
+    wid_web_development_description: "Creation of modern, fast websites adapted to any device.",
+    wid_frontend_title: "Frontend Development",
+    wid_frontend_description: "Attractive and functional interfaces focused on the user experience.",
+    wid_maintenance_title: "Maintenance and improvements",
+    wid_maintenance_description: "Content updates, bug fixes, and optimization of existing sites.",
+    wid_backend_title: "Backend Development",
+    wid_backend_description:
       "I have worked with Firebase as a backend-as-a-service, implementing user authentication and data management in web applications, while continuing to learn about backend development.",
     // Skills
     skills_title: "Skills",
     skills_description: "These are some of the technologies and tools I have worked with in my learning process.",
     // Contact
-    contact_title: "Contact",
-    contact_description: "If you want to contact me, you can do it through the following form.",
+    contact_title: "Get in touch",
     contact_name: "Name",
     contact_email: "Email",
     contact_message: "Message",
@@ -103,25 +103,23 @@ export const ui = {
     about_paragraph_1:
       "Como quizás ya habrás notado, mi nombre es Andrés Méndez y soy un programador con experiencia en el desarrollo de sitios web modernos, funcionales y optimizados para una buena experiencia de usuario. Me apasiona la tecnología, disfruto aprendiendo nuevas herramientas y mejorando constantemente mis habilidades para enfrentar nuevos desafíos y oportunidades donde pueda aportar, aprender de un equipo y seguir evolucionando profesionalmente.",
     // What I do
-    what_i_do_title: "¿Qué hago?",
-    what_i_do_web_development_title: "Desarrollo Web",
-    what_i_do_web_development_description:
-      "Creación de sitios web modernos, rápidos y adaptados a cualquier dispositivo.",
-    what_i_do_frontend_title: "Desarrollo Frontend",
-    what_i_do_frontend_description: "Interfaces atractivas y funcionales centradas en la experiencia del usuario.",
-    what_i_do_maintenance_title: "Mantenimiento y mejoras",
-    what_i_do_maintenance_description:
+    wid_title: "¿Qué hago?",
+    wid_web_development_title: "Desarrollo Web",
+    wid_web_development_description: "Creación de sitios web modernos, rápidos y adaptados a cualquier dispositivo.",
+    wid_frontend_title: "Desarrollo Frontend",
+    wid_frontend_description: "Interfaces atractivas y funcionales centradas en la experiencia del usuario.",
+    wid_maintenance_title: "Mantenimiento y mejoras",
+    wid_maintenance_description:
       "Actualización de contenidos, corrección de errores y optimización de sitios existentes.",
-    what_i_do_backend_title: "Desarrollo Backend",
-    what_i_do_backend_description:
+    wid_backend_title: "Desarrollo Backend",
+    wid_backend_description:
       "He trabajado con Firebase como backend-as-a-service, implementando autenticación de usuarios y gestión de datos en aplicaciones web, mientras continúo aprendiendo sobre desarrollo backend.",
     // Skills
     skills_title: "Habilidades",
     skills_description:
       "Estas son algunas de las tecnologías y herramientas con las que he trabajado en mi proceso de aprendizaje.",
     // Contact
-    contact_title: "Contacto",
-    contact_description: "Si deseas contactarme, puedes hacerlo a través del siguiente formulario.",
+    contact_title: "Ponte en contacto",
     contact_name: "Nombre",
     contact_email: "Correo electrónico",
     contact_message: "Mensaje",
@@ -166,26 +164,22 @@ export const ui = {
     about_paragraph_1:
       "Wie Sie vielleicht bemerkt haben, heiße ich Andrés Méndez und bin ein Programmierer mit Erfahrung in der Entwicklung moderner, funktionaler und für eine gute Benutzererfahrung optimierter Websites. Ich begeistere mich für Technologie, lerne gerne neue Werkzeuge und verbessere ständig meine Fähigkeiten, um neuen Herausforderungen und Möglichkeiten zu begegnen, bei denen ich einen Beitrag leisten, von einem Team lernen und mich beruflich weiterentwickeln kann.",
     // What I do
-    what_i_do_title: "Was ich tue",
-    what_i_do_web_development_title: "Webentwicklung",
-    what_i_do_web_development_description:
-      "Erstellung moderner, schneller Websites, die für jedes Gerät geeignet sind.",
-    what_i_do_frontend_title: "Frontend-Entwicklung",
-    what_i_do_frontend_description:
-      "Attraktive und funktionale Schnittstellen, die auf Benutzererfahrung ausgerichtet sind.",
-    what_i_do_maintenance_title: "Wartung und Verbesserungen",
-    what_i_do_maintenance_description:
-      "Aktualisierung von Inhalten, Fehlerbehebung und Optimierung bestehender Websites.",
-    what_i_do_backend_title: "Backend-Entwicklung",
-    what_i_do_backend_description:
+    wid_title: "Was ich tue",
+    wid_web_development_title: "Webentwicklung",
+    wid_web_development_description: "Erstellung moderner, schneller Websites, die für jedes Gerät geeignet sind.",
+    wid_frontend_title: "Frontend-Entwicklung",
+    wid_frontend_description: "Attraktive und funktionale Schnittstellen, die auf Benutzererfahrung ausgerichtet sind.",
+    wid_maintenance_title: "Wartung und Verbesserungen",
+    wid_maintenance_description: "Aktualisierung von Inhalten, Fehlerbehebung und Optimierung bestehender Websites.",
+    wid_backend_title: "Backend-Entwicklung",
+    wid_backend_description:
       "Ich habe mit Firebase als Backend-as-a-Service gearbeitet und Benutzerauthentifizierung und Datenverwaltung in Webanwendungen implementiert, während ich weiterhin Backend-Entwicklung lerne.",
     // Skills
     skills_title: "Fähigkeiten",
     skills_description:
       "Dies sind einige der Technologien und Werkzeuge, mit denen ich in meinem Lernprozess gearbeitet habe.",
     // Contact
-    contact_title: "Kontakt",
-    contact_description: "Wenn Sie mich kontaktieren möchten, können Sie dies über das folgende Formular tun.",
+    contact_title: "Kontakt aufnehmen",
     contact_name: "Name",
     contact_email: "E-Mail",
     contact_message: "Nachricht",
