@@ -2,16 +2,21 @@
 const { translate } = Astro.props;
 ---
 
-<h3>{translate("about_title")}</h3>
-<p>{translate("about_greeting")} <span class="animate-waving-hand">👋</span></p>
+<header>
+  <h3>{translate("about_title")}</h3>
+</header>
 
-<p>
+<article class="grid gap-4">
+  <p>{translate("about_greeting")} <span class="animate-waving-hand">👋</span></p>
+
+  <p>
     {translate("about_paragraph_1")}
-</p>
+  </p>
 
-<p>
+  <p>
     {translate("about_maybe_1")}
-</p>
-<p>
+  </p>
+  <p>
     {translate("about_maybe_2")}
-</p>
+  </p>
+</article>

@@ -4,8 +4,10 @@ import WIDCard from "./WIDCard.astro";
 const { translate } = Astro.props;
 ---
 
-<h3>{translate("wid_title")}</h3>
+<header>
+  <h3>{translate("wid_title")}</h3>
+</header>
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <WIDCard translate={translate} />
-</div>
+</article>

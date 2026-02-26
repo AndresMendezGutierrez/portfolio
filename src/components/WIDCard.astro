@@ -11,14 +11,14 @@ const widList = [
 
 {
   widList.map((wid) => (
-    <article class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-      <header class="text-center">
-        <svg aria-hidden="true">
+    <section class="max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
+      <header class="block justify-items-center">
+        <svg aria-hidden="true" class="w-14.5">
           <use href={`/src/assets/icons/icons-sprite.svg#${wid.icon}`} />
         </svg>
         <h4 class="mb-3 text-xl font-semibold tracking-tight text-heading leading-8">{translate(wid.title)}</h4>
       </header>
       <p class="mb-3 text-base text-body leading-7">{translate(wid.description)}</p>
-    </article>
+    </section>
   ))
 }
