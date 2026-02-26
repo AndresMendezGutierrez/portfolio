@@ -5,40 +5,24 @@ const widList = [
   {
     title: "what_i_do_web_development_title",
     description: "what_i_do_web_development_description",
-    icon: "web-development",
+    icon: "development-icon",
   },
-  {
-    title: "what_i_do_frontend_title",
-    description: "what_i_do_frontend_description",
-    icon: "frontend",
-  },
-  {
-    title: "what_i_do_maintenance_title",
-    description: "what_i_do_maintenance_description",
-    icon: "maintenance",
-  },
-  {
-    title: "what_i_do_backend_title",
-    description: "what_i_do_backend_description",
-    icon: "backend",
-  },
+  { title: "what_i_do_frontend_title", description: "what_i_do_frontend_description", icon: "frontend-icon" },
+  { title: "what_i_do_maintenance_title", description: "what_i_do_maintenance_description", icon: "maintenance-icon" },
+  { title: "what_i_do_backend_title", description: "what_i_do_backend_description", icon: "backend-icon" },
 ];
 ---
 
-<article class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-  {
-    widList.map((wid) => (
-      <section class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
-        <h4 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8">
-          <svg aria-hidden="true">
-            <use href={`/src/assets/icons/icons-sprite.svg#${wid.icon}`} />
-          </svg>
-          {translate(wid.title)}
-        </h4>
-        <p class="mb-3 text-base text-body leading-7">
-          {translate(wid.description)}
-        </p>
-      </section>
-    ))
-  }
-</article>
+{
+  widList.map((wid) => (
+    <article class="bg-neutral-primary-soft block max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
+      <header class="text-center">
+        <svg aria-hidden="true">
+          <use href={`/src/assets/icons/icons-sprite.svg#${wid.icon}`} />
+        </svg>
+        <h4 class="mb-3 text-xl font-semibold tracking-tight text-heading leading-8">{translate(wid.title)}</h4>
+      </header>
+      <p class="mb-3 text-base text-body leading-7">{translate(wid.description)}</p>
+    </article>
+  ))
+}

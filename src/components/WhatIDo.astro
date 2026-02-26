@@ -6,4 +6,6 @@ const { translate } = Astro.props;
 
 <h3>{translate("what_i_do_title")}</h3>
 
-<CardWID translate={translate} />
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+  <CardWID translate={translate} />
+</div>
