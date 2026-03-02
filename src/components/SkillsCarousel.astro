@@ -13,7 +13,7 @@ const doubleSkills = [...skills, ...skills];
       doubleSkills.map((skill) => (
         <li class="text-center">
           <svg class="text-primary">
-            <use href={`/icons/icons-sprite.svg#${skill.icon}`} />
+            <use href={`${import.meta.env.BASE_URL}icons/icons-sprite.svg#${skill.icon}`} />
           </svg>
           <p>{skill.name}</p>
         </li>
