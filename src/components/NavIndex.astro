@@ -17,7 +17,7 @@ const navItems = [
       navItems.map((item) => (
         <li class="relative group">
           <a
-            href={`/${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
+            href={`${import.meta.env.BASE_URL}${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
             data-section={item.id}
             class="nav-link flex items-center justify-center md:justify-end gap-3 hover:text-zinc-500 transition-all uppercase tracking-widest py-2 md:py-1"
           >
