@@ -38,7 +38,7 @@ export function getTranslatedPath(url: URL, targetLang: string) {
   const langCode = targetLang as Locale;
 
   if (!slug || slug === "/") {
-    return langCode === defaultLang ? "/" : `/${langCode}/`;
+    return langCode === defaultLang ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}${langCode}/`;
   }
 
   const pageKey = (Object.keys(routes[defaultLang]) as PageKey[]).find((key) => {
@@ -46,10 +46,12 @@ export function getTranslatedPath(url: URL, targetLang: string) {
   });
 
   if (!pageKey) {
-    return langCode === defaultLang ? "/" : `/${langCode}/`;
+    return langCode === defaultLang ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}${langCode}/`;
   }
 
   const translatedSlug = routes[langCode][pageKey];
 
-  return langCode === defaultLang ? `/${translatedSlug}` : `/${langCode}/${translatedSlug}`;
+  return langCode === defaultLang
+    ? `${import.meta.env.BASE_URL}${translatedSlug}`
+    : `${import.meta.env.BASE_URL}${langCode}/${translatedSlug}`;
 }
