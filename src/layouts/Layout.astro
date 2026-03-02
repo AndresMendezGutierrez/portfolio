@@ -21,7 +21,7 @@ const { currentLang, translate } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={translate("head_description")} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
     <title>{translate("head_title")}</title>
 

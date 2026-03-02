@@ -14,7 +14,7 @@ const widList = [
     <section class="max-w-sm p-6 border border-default rounded-base shadow-xs hover:bg-neutral-secondary-medium">
       <header class="block justify-items-center">
         <svg aria-hidden="true" class="w-14.5">
-          <use href={`icons/icons-sprite.svg#${wid.icon}`} />
+          <use href={`${import.meta.env.BASE_URL}icons/icons-sprite.svg#${wid.icon}`} />
         </svg>
         <h4 class="mb-3 text-xl font-semibold tracking-tight text-heading leading-8">{translate(wid.title)}</h4>
       </header>

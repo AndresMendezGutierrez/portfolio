@@ -11,21 +11,17 @@ const { currentLang, translate } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="description" content={translate("head_description")} />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
     <title>{translate("head_title")}</title>
   </head>
-  <body
-    class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 min-h-screen"
-  >
+  <body class="bg-white dark:bg-black dark:text-white px-4.5 md:px-8 lg:px-16 min-h-screen">
     <Header
       class="px-4.5 md:px-8 lg:px-16 pt-6 md:pt-8 lg:pt-12 max-w-352 mx-auto"
       currentLang={currentLang}
       translate={translate}
     />
-    <main
-      class="max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen"
-    >
+    <main class="max-w-7xl mx-auto flex flex-col items-center justify-center min-h-screen">
       <slot />
     </main>
     <GridBackground />
