@@ -34,7 +34,10 @@ const sortedLanguages = Object.entries(languages).sort(([codeA], [codeB]) => {
   >
     {
       sortedLanguages.map(([code]) => {
-        const href = getTranslatedPath(Astro.url, code);
+        console.log(`code = ${code}, currentLang = ${currentLang}`);
+        const href = getTranslatedPath(Astro.url.pathname, code);
+        console.log(`Astro.url = ${Astro.url.pathname}`);
+        console.log(`href = ${href}`);
         const isActive = currentLang === code;
 
         return (

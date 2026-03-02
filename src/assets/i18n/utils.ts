@@ -18,40 +18,19 @@ export function getLangFromUrl(url: URL): Locale {
 }
 
 export function useTranslations(lang: Locale) {
-  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+  return function t(key: keyof (typeof ui)[Locale]) {
     return ui[lang][key] || ui[defaultLang][key];
   };
 }
 
-export function getRelativePath(url: URL) {
-  const pathname = url.pathname;
-  const segments = pathname.split("/").filter(Boolean);
-
-  if (segments.length > 0 && (segments[0] as any) in ui) {
-    return segments.slice(1).join("/");
-  }
-  return segments.join("/");
-}
-
-export function getTranslatedPath(url: URL, targetLang: string) {
-  const slug = getRelativePath(url);
+export function getTranslatedPath(pathname: string, targetLang: string) {
   const langCode = targetLang as Locale;
 
-  if (!slug || slug === "/") {
-    return langCode === defaultLang ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}${langCode}/`;
+  if (pathname.startsWith(`/${langCode}/`)) {
+    console.log(`pathname.startsWith = ${pathname}`);
+    return pathname;
   }
 
-  const pageKey = (Object.keys(routes[defaultLang]) as PageKey[]).find((key) => {
-    return Object.values(routes).some((langRoutes) => langRoutes[key] === slug);
-  });
-
-  if (!pageKey) {
-    return langCode === defaultLang ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}${langCode}/`;
-  }
-
-  const translatedSlug = routes[langCode][pageKey];
-
-  return langCode === defaultLang
-    ? `${import.meta.env.BASE_URL}${translatedSlug}`
-    : `${import.meta.env.BASE_URL}${langCode}/${translatedSlug}`;
+  console.log(`pathname = ${pathname}`);
+  return langCode === defaultLang ? `${pathname}` : `${langCode}${pathname}`;
 }
