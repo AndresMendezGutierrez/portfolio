@@ -1,26 +1,38 @@
 ---
 import About from "./About.astro";
 import Contact from "./Contact.astro";
+import Footer from "./Footer.astro";
 import Intro from "./Intro.astro";
+import MainComponent from "./MainComponent.astro";
 import MainSection from "./MainSection.astro";
+import NavIndex from "./NavIndex.astro";
 import Skills from "./Skills.astro";
 import WhatIDo from "./WhatIDo.astro";
 
-const { translate } = Astro.props;
+const { translate, currentLang } = Astro.props;
 ---
 
-<MainSection id="intro" class="min-h-screen flex flex-col justify-center items-center relative">
-  <Intro translate={translate} />
-</MainSection>
-<MainSection id="about" class="flex flex-col gap-4 py-12">
-  <About translate={translate} />
-</MainSection>
-<MainSection id="what-i-do" class="grid justify-center gap-4 py-12">
-  <WhatIDo translate={translate} />
-</MainSection>
-<MainSection id="skills" class="flex flex-col gap-4 py-12">
-  <Skills translate={translate} />
-</MainSection>
-<MainSection id="contact" class="py-12">
-  <Contact translate={translate} />
-</MainSection>
+<MainComponent>
+  <MainSection id="intro" class="min-h-screen flex flex-col justify-center items-center relative">
+    <Intro translate={translate} />
+  </MainSection>
+  <MainSection id="about" class="flex flex-col gap-4 py-12">
+    <About translate={translate} />
+  </MainSection>
+  <MainSection id="what-i-do" class="grid justify-center gap-4 py-12">
+    <WhatIDo translate={translate} />
+  </MainSection>
+  <MainSection id="skills" class="flex flex-col gap-4 py-12">
+    <Skills translate={translate} />
+  </MainSection>
+  <MainSection id="contact" class="py-12">
+    <Contact translate={translate} />
+  </MainSection>
+</MainComponent>
+
+<NavIndex
+  class="hidden md:flex fixed top-1/2 -translate-y-1/2 right-8 z-40"
+  currentLang={currentLang}
+  translate={translate}
+/>
+<Footer translate={translate} />

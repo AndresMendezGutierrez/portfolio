@@ -4,11 +4,18 @@ import PortfolioContent from "../components/PortfolioContent.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 
-const currentLang = Astro.currentLocale || "en";
+type Lang = "en" | "es" | "de";
+
+function normalizeLocale(loc: unknown): Lang {
+  if (loc === "en" || loc === "es" || loc === "de") return loc;
+  return "en";
+}
+
+const currentLang: Lang = normalizeLocale(Astro.currentLocale);
 
 const translate = useTranslations(currentLang as "es" | "en" | "de");
 ---
 
 <Layout currentLang={currentLang} translate={translate}>
-  <PortfolioContent translate={translate} />
+  <PortfolioContent currentLang={currentLang} translate={translate} />
 </Layout>

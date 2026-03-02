@@ -1,6 +1,7 @@
 ---
 import { defaultLang, languages, useTranslations } from "../../assets/i18n/utils";
-import L404 from "../../layouts/L-404.astro";
+import Layout from "../../layouts/Layout.astro";
+import BadRequestContent from "../../components/BadRequestContent.astro";
 import "../../styles/global.css";
 
 export async function getStaticPaths() {
@@ -10,11 +11,10 @@ export async function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const translate = useTranslations(lang as "es" | "de");
+const currentLang = lang as "es" | "de";
+const translate = useTranslations(currentLang);
 ---
 
-<L404 currentLang={lang} translate={translate}>
-  <p class="text-4xl">{translate("not_found_title")}</p>
-  <p class="text-xl">{translate("not_found_description")}</p>
-  <a href={`${import.meta.env.BASE_URL}`} class="text-xl">{translate("not_found_back")}</a>
-</L404>
+<Layout currentLang={currentLang} translate={translate}>
+  <BadRequestContent currentLang={currentLang} translate={translate} />
+</Layout>

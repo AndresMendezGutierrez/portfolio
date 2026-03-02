@@ -1,0 +1,17 @@
+---
+import type { useTranslations } from "../assets/i18n/utils";
+
+interface Props {
+  currentLang: "en" | "es" | "de";
+  translate: ReturnType<typeof useTranslations>;
+}
+
+const { currentLang, translate } = Astro.props;
+const path = currentLang === "en" ? "/" : `/${currentLang}/`;
+---
+
+<section id="not-found" class="min-h-screen flex flex-col justify-center items-center text-center gap-2">
+  <p class="text-4xl">{translate("not_found_title")}</p>
+  <p class="text-xl">{translate("not_found_description")}</p>
+  <a href={path} class="text-xl">{translate("not_found_back")}</a>
+</section>
