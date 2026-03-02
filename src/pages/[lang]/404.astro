@@ -1,9 +1,5 @@
 ---
-import {
-  defaultLang,
-  languages,
-  useTranslations,
-} from "../../assets/i18n/utils";
+import { defaultLang, languages, useTranslations } from "../../assets/i18n/utils";
 import L404 from "../../layouts/L-404.astro";
 import "../../styles/global.css";
 
@@ -20,5 +16,5 @@ const translate = useTranslations(lang as "es" | "de");
 <L404 currentLang={lang} translate={translate}>
   <p class="text-4xl">{translate("not_found_title")}</p>
   <p class="text-xl">{translate("not_found_description")}</p>
-  <a href="/" class="text-xl">{translate("not_found_back")}</a>
+  <a href={`${import.meta.env.BASE_URL}`} class="text-xl">{translate("not_found_back")}</a>
 </L404>

@@ -7,17 +7,17 @@ const { translate } = Astro.props;
   <menu class="flex justify-center">
     <li>
       <svg class="w-22 h-22">
-        <use href="icons/icons-sprite.svg#linkedin-icon"></use>
+        <use href={`${import.meta.env.BASE_URL}icons/icons-sprite.svg#linkedin-icon`}></use>
       </svg>
     </li>
     <li>
       <svg class="w-22 h-22">
-        <use href="icons/icons-sprite.svg#phone-icon"></use>
+        <use href={`${import.meta.env.BASE_URL}icons/icons-sprite.svg#phone-icon`}></use>
       </svg>
     </li>
     <li>
       <svg class="w-22 h-22">
-        <use href="icons/icons-sprite.svg#github-icon"></use>
+        <use href={`${import.meta.env.BASE_URL}icons/icons-sprite.svg#github-icon`}></use>
       </svg>
     </li>
   </menu>

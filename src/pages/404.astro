@@ -12,7 +12,7 @@ const translate = useTranslations(currentLang as "es" | "en" | "de");
 <L404 currentLang={currentLang} translate={translate}>
   <p class="text-4xl">{translate("not_found_title")}</p>
   <p class="text-xl">{translate("not_found_description")}</p>
-  <a href="/" class="text-xl">{translate("not_found_back")}</a>
+  <a href={`${import.meta.env.BASE_URL}`} class="text-xl">{translate("not_found_back")}</a>
 
   <Welcome />
 </L404>
