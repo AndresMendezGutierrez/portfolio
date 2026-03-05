@@ -25,12 +25,17 @@ export function useTranslations(lang: Locale) {
 
 export function getTranslatedPath(pathname: string, targetLang: string) {
   const langCode = targetLang as Locale;
+  const segments = pathname.split("/").filter((s) => s !== "");
 
-  if (pathname.startsWith(`/${langCode}/`)) {
-    console.log(`pathname.startsWith = ${pathname}`);
-    return pathname;
+  if (segments.length > 0 && segments[0] in languages) {
+    segments.shift();
   }
 
-  console.log(`pathname = ${pathname}`);
-  return langCode === defaultLang ? `${pathname}` : `${langCode}${pathname}`;
+  const cleanPathname = "/" + segments.join("/");
+
+  if (langCode === defaultLang) {
+    return cleanPathname;
+  }
+
+  return `/${langCode}${cleanPathname === "/" ? "/" : cleanPathname}`;
 }
