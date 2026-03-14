@@ -3,4 +3,9 @@
   --color-white: #fafbff;
   --color-black: #121212;
   --color-navy-blue: #0f182e;
+
+  --shadow-base: 0 0 10px 0 rgba(0, 0, 0, 0.51);
+  --shadow-base-hover: 0 0 15px 0 rgba(0, 0, 0, 0.75);
+
+  --default-font-family: "Sometype Mono";
 }
