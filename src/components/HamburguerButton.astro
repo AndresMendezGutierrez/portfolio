@@ -1,5 +1,4 @@
 ---
-// components/HamburguerButton.astro
 const { translate } = Astro.props;
 ---
 
@@ -10,11 +9,11 @@ const { translate } = Astro.props;
   aria-expanded="false"
   aria-controls="mobile-menu"
 >
-  <div class="w-6.5 h-5 relative flex flex-col justify-between">
+  <span class="w-6.5 h-5 relative flex flex-col justify-between">
     <span id="line-1" class="w-full h-0.75 bg-current transition-all duration-300 origin-left"></span>
     <span id="line-2" class="w-full h-0.75 bg-current transition-all duration-300"></span>
     <span id="line-3" class="w-full h-0.75 bg-current transition-all duration-300 origin-left"></span>
-  </div>
+  </span>
 </button>
 
 <script>
