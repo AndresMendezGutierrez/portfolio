@@ -16,7 +16,6 @@ const serviceAccount = {
 };
 
 const initApp = () => {
-  console.info("Initializing Firebase Admin with service account from env.");
   return initializeApp({
     credential: cert(serviceAccount as ServiceAccount),
   });
