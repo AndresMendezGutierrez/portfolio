@@ -8,4 +8,8 @@
   --shadow-base-hover: 0 0 15px 0 rgba(0, 0, 0, 0.75);
 
   --default-font-family: "Sometype Mono";
+  --font-workbench: "Workbench";
+
+  --text-38: 2.375rem;
+  --text-38--line-height: 100%;
 }
