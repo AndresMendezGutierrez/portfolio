@@ -1,5 +1,56 @@
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+@layer utilities {
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@theme inline {
+  --animate-slide-top: slide-in-from-top 0.8s ease-out forwards;
+
+  @keyframes slide-in-from-top {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-fade-in: fade-in 1s ease-in forwards;
+
+  @keyframes fade-in {
+    to {
+      opacity: 1;
+    }
+  }
+
+  --animate-slow-bounce: custom-bounce 2s infinite;
+
+  @keyframes custom-bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  --animate-waving-hand: waving-hand 2s infinite;
+
+  @keyframes waving-hand {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
   }
 }
