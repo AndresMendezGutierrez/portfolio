@@ -7,7 +7,12 @@ const { translate } = Astro.props;
 </header>
 
 <article class="grid gap-4">
-  <p>{translate("about_greeting")} <span class="animate-waving-hand">👋</span></p>
+  <p class="overflow-hidden">
+    <span class="inline-block opacity-0 js-reveal">
+      {translate("about_greeting")}
+      <span class="inline-block animate-waving-hand origin-[70%_70%]">👋</span>
+    </span>
+  </p>
 
   <p>
     {translate("about_paragraph_1")}
@@ -20,3 +25,36 @@ const { translate } = Astro.props;
     {translate("about_maybe_2")}
   </p>
 </article>
+
+<style>
+  .reveal-animation {
+    animation: var(--animate-slide-in-out-left);
+  }
+</style>
+
+<script>
+  export function initRevealAnimation() {
+    const observerOptions = {
+      root: null,
+      threshold: 0.5,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const elementToAnimate = entry.target.querySelector(".js-reveal");
+
+          if (elementToAnimate) {
+            elementToAnimate.classList.add("reveal-animation");
+            elementToAnimate.classList.remove("opacity-0");
+          }
+        }
+      });
+    }, observerOptions);
+
+    const sectionAbout = document.getElementById("about");
+    if (sectionAbout) observer.observe(sectionAbout);
+  }
+
+  initRevealAnimation();
+</script>

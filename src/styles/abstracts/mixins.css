@@ -6,7 +6,7 @@
   }
 }
 
-@theme inline {
+@theme {
   --animate-slide-top: slide-in-from-top 0.8s ease-out forwards;
 
   @keyframes slide-in-from-top {
@@ -40,17 +40,53 @@
     }
   }
 
-  --animate-waving-hand: waving-hand 2s infinite;
+  --animate-waving-hand: waving-hand 2.5s infinite;
 
   @keyframes waving-hand {
     0% {
       transform: rotate(0deg);
     }
+    10% {
+      transform: rotate(90deg);
+    }
+    20% {
+      transform: rotate(-18deg);
+    }
+    30% {
+      transform: rotate(90deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
     50% {
       transform: rotate(10deg);
     }
+    60% {
+      transform: rotate(0deg);
+    }
     100% {
       transform: rotate(0deg);
+    }
+  }
+
+  --animate-slide-in-out-left: slide-in-out-left 4s ease-in-out forwards;
+
+  @keyframes slide-in-out-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+    10% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    90% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100%);
     }
   }
 }
