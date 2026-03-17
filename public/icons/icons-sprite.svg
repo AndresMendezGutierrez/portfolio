@@ -291,5 +291,11 @@
       <path d="M16 16v-3a2 2 0 1 0 -4 0" />
       <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" />
     </symbol>
+
+    <symbol id="arrow-right" viewBox="0 0 26 26" fill="none">
+      <path d="M5.41699 13H20.5837M20.5837 13L14.0837 19.5M20.5837 13L14.0837 6.5"
+        stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
   </defs>
 </svg>
