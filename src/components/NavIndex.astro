@@ -11,16 +11,17 @@ const navItems = [
 ---
 
 <nav id={id} class:list={["flex-col items-center justify-center transition-all duration-500", className]}>
-  <ol class="grid items-center gap-6 text-xl font-semibold text-center md:text-right">
+  <ol class="nav-list grid items-center">
     {
       navItems.map((item) => (
-        <li class="relative group">
+        <li class="group">
           <a
             href={`${import.meta.env.BASE_URL}${currentLang === "en" ? "" : currentLang + "/"}#${item.id}`}
             data-section={item.id}
-            class="nav-link flex items-center justify-center md:justify-end gap-3 hover:text-zinc-500 transition-all uppercase tracking-widest py-2 md:py-1"
+            class="nav-link flex items-center transition-all group"
           >
-            <span class="active-indicator hidden w-2 h-6 bg-primary rounded-full" />
+            <span class="nav-indicator" />
+
             <span class="link-text">{translate(item.label)}</span>
           </a>
         </li>
@@ -32,10 +33,74 @@ const navItems = [
 <style>
   @reference "../styles/global.css";
 
+  .nav-list {
+    @apply justify-center gap-6 text-xl font-semibold;
+  }
+
+  .nav-link {
+    @apply gap-3 py-2 text-xl tracking-widest hover:text-primary/60;
+  }
+
+  .nav-indicator {
+    @apply order-1 hidden h-6 w-2 rounded-full bg-primary;
+  }
+
+  .link-text {
+    @apply order-2 transition-all duration-300;
+  }
+
   .nav-link.active {
     @apply scale-110 text-primary;
   }
-  .nav-link.active .active-indicator {
+  .nav-link.active .nav-indicator {
     @apply block;
+  }
+
+  @media (min-width: 768px) and (max-width: 1535px) {
+    .nav-list {
+      @apply justify-end gap-1;
+    }
+    .nav-link {
+      @apply justify-end py-1 text-sm;
+    }
+
+    .link-text {
+      @apply invisible order-1 translate-x-4 opacity-0;
+      @apply group-hover:visible group-hover:translate-x-0 group-hover:opacity-100;
+    }
+
+    .nav-indicator {
+      @apply order-2 block h-2 w-2 rounded-full bg-black dark:bg-white;
+    }
+
+    .nav-link.active .link-text {
+      @apply translate-x-0 opacity-100;
+    }
+    .nav-link.active .nav-indicator {
+      @apply bg-primary ring-2 ring-primary ring-offset-2 dark:ring-offset-black;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .nav-list {
+      @apply justify-end gap-6 text-xl;
+    }
+    .nav-link {
+      @apply justify-end py-2;
+    }
+
+    .nav-indicator {
+      @apply order-1 hidden h-6 w-2 rounded-full bg-primary;
+    }
+    .link-text {
+      @apply visible order-2 translate-x-0 opacity-100;
+    }
+
+    .nav-link.active .nav-indicator {
+      @apply block;
+    }
+    .nav-link.active .link-text {
+      @apply scale-110 text-primary;
+    }
   }
 </style>
