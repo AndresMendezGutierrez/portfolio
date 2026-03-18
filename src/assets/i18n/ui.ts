@@ -59,6 +59,10 @@ export const ui = {
     skills_description: "These are some of the technologies and tools I have worked with in my learning process.",
     // Contact
     contact_title: "Get in touch",
+    contact_label_menu: "Social networks and direct contact",
+    contact_label_linkedin: "Visit my LinkedIn profile",
+    contact_label_phone: "Call me at +34 910 00 97 18",
+    contact_label_github: "Visit my GitHub profile",
     contact_or: "or",
     contact_email_instruction: "If you want to contact me by email, you can do it through the following form.",
     contact_label_email: "Email",
@@ -127,6 +131,11 @@ export const ui = {
     skills_description:
       "Estas son algunas de las tecnologías y herramientas con las que he trabajado en mi proceso de aprendizaje.",
     // Contact
+    contact_title: "Ponte en contacto",
+    contact_label_menu: "Redes sociales y contacto directo",
+    contact_label_linkedin: "Visita mi perfil de LinkedIn",
+    contact_label_phone: "Llama a +34 910 00 97 18",
+    contact_label_github: "Visita mi perfil de GitHub",
     contact_or: "o",
     contact_email_instruction:
       "Si quieres contactarme por correo electrónico, puedes hacerlo a través del siguiente formulario.",
@@ -196,6 +205,10 @@ export const ui = {
       "Dies sind einige der Technologien und Werkzeuge, mit denen ich in meinem Lernprozess gearbeitet habe.",
     // Contact
     contact_title: "Kontakt aufnehmen",
+    contact_label_menu: "Soziale Netzwerke und direkter Kontakt",
+    contact_label_linkedin: "Besuche meinen LinkedIn-Profil",
+    contact_label_phone: "Rufe mich an +34 910 00 97 18",
+    contact_label_github: "Besuche meinen GitHub-Profil",
     contact_or: "oder",
     contact_email_instruction:
       "Wenn Sie mich per E-Mail kontaktieren möchten, können Sie dies über das folgende Formular tun.",
