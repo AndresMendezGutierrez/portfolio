@@ -1,0 +1,12 @@
+---
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id, class: className } = Astro.props;
+---
+
+<svg id={id} class={`${className} animate-spin`}>
+  <use href={`${import.meta.env.BASE_URL}icons/icons-sprite.svg#spinner`}></use>
+</svg>
