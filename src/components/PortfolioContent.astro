@@ -8,7 +8,7 @@ import NavIndex from "./NavIndex.astro";
 import Skills from "./Skills.astro";
 import WhatIDo from "./WhatIDo.astro";
 
-const { translate, currentLang } = Astro.props;
+const { translate, currentLang, RECAPTCHA_SITE_KEY } = Astro.props;
 ---
 
 <MainComponent>
@@ -29,7 +29,7 @@ const { translate, currentLang } = Astro.props;
   </section>
 
   <section id="contact" class="mx-auto max-w-2xl py-12">
-    <Contact translate={translate} />
+    <Contact translate={translate} RECAPTCHA_SITE_KEY={RECAPTCHA_SITE_KEY} />
   </section>
 </MainComponent>
 
