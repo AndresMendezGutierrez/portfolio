@@ -1,5 +1,6 @@
 ---
 // components/Form.astro
+import { validationRecaptchaV3 } from "../services/recaptcha/recaptcha";
 import IconComponent from "./IconComponent.astro";
 import Spinner from "./spinner.astro";
 
@@ -10,7 +11,13 @@ const RECAPTCHA_SITE_KEY: string = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 const errorMessages = { required: translate("form_error_required"), email: translate("form_error_email") };
 ---
 
-<form id="contact-form" class="space-y-6 font-normal text-xl/10 px-6" action="/api/contact" method="POST" novalidate>
+<form
+  id="contact-form"
+  class="space-y-6 font-normal text-xl/10 px-6"
+  data-recaptcha-site-key={RECAPTCHA_SITE_KEY}
+  data-error-messages={JSON.stringify(errorMessages)}
+  novalidate
+>
   <input type="hidden" name="recaptcha_token" id="recaptcha_token" />
 
   <section class="group mb-3">
@@ -93,21 +100,31 @@ const errorMessages = { required: translate("form_error_required"), email: trans
 
 <script is:inline src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}></script>
 
-<script define:vars={{ RECAPTCHA_SITE_KEY, errorMessages }}>
-  const form = document.getElementById("contact-form");
-  const submitBtn = document.getElementById("submit-button");
-  const submitText = document.getElementById("submit-text");
-  const spinner = document.getElementById("spinner");
+<script>
+  import { validationRecaptchaV3 } from "../services/recaptcha/recaptcha";
+
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-button") as HTMLButtonElement;
+  const submitText = document.getElementById("submit-text") as HTMLSpanElement;
+  const spinner = document.getElementById("spinner") as HTMLSpanElement;
+
+  const RECAPTCHA_SITE_KEY = form.dataset.recaptchaSiteKey!;
+  const errorMessages = JSON.parse(form.dataset.errorMessages!) as { required: string; email: string };
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  const validateField = (input) => {
-    const section = input.closest("section") || input.parentElement.parentElement;
+  const sendForm = async (formData: FormData) => {
+    console.log(formData);
+    return "";
+  };
+
+  const validateField = (input: HTMLInputElement | HTMLTextAreaElement) => {
+    const section = input.closest("section") || input.parentElement?.parentElement;
     const errorSpan = section?.querySelector(".error-msg");
     let isValid = true;
     let message = "*";
 
-    if (input.required && (input.type === "checkbox" ? !input.checked : !input.value.trim())) {
+    if (input.required && (input.type === "checkbox" ? !(input as HTMLInputElement).checked : !input.value.trim())) {
       isValid = false;
       message = errorMessages.required;
     } else if (input.type === "email" && input.value.trim() !== "" && !emailRegex.test(input.value)) {
@@ -130,14 +147,15 @@ const errorMessages = { required: translate("form_error_required"), email: trans
   };
 
   form?.querySelectorAll("input, textarea").forEach((input) => {
-    input.addEventListener("input", () => validateField(input));
-    input.addEventListener("blur", () => validateField(input));
+    const element = input as HTMLInputElement | HTMLTextAreaElement;
+    element.addEventListener("input", () => validateField(element));
+    element.addEventListener("blur", () => validateField(element));
   });
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const inputs = Array.from(form.querySelectorAll("input, textarea"));
+    const inputs = Array.from(form.querySelectorAll("input, textarea")) as (HTMLInputElement | HTMLTextAreaElement)[];
 
     const formResults = inputs.map((input) => validateField(input));
     const isFormValid = formResults.every((result) => result === true);
@@ -152,16 +170,20 @@ const errorMessages = { required: translate("form_error_required"), email: trans
     if (submitText) submitText.classList.add("hidden");
     if (spinner) spinner.classList.remove("hidden");
 
-    grecaptcha.ready(() => {
-      grecaptcha
+    (window as any).grecaptcha.ready(() => {
+      (window as any).grecaptcha
         .execute(RECAPTCHA_SITE_KEY, { action: "contact_form" })
-        .then((token) => {
-          const tokenInput = document.getElementById("recaptcha_token");
+        .then((token: string) => {
+          const tokenInput = document.getElementById("recaptcha_token") as HTMLInputElement;
           if (tokenInput) tokenInput.value = token;
-
-          form.submit();
+          validationRecaptchaV3(token).then((isValid) => {
+            console.log(isValid);
+            if (isValid) {
+              sendForm(new FormData(form));
+            }
+          });
         })
-        .catch((error) => {
+        .catch((error: Error) => {
           console.error("Error en reCAPTCHA:", error);
           if (submitBtn) submitBtn.disabled = false;
           if (submitText) submitText.classList.remove("hidden");

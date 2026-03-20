@@ -78,6 +78,8 @@ export const ui = {
     form_placeholder_message: "Your message",
     form_terms: "I agree with the terms and conditions",
     form_button_send: "Send message",
+    form_success: "Message sent successfully",
+    form_error: "Error sending message",
     // Footer
     footer_copyright: "Copyright © 2026, almost all rights reserved",
     footer_credits: "Credits",
@@ -155,6 +157,8 @@ export const ui = {
     form_placeholder_message: "Tu mensaje",
     form_terms: "Acepto los términos y condiciones",
     form_button_send: "Enviar mensaje",
+    form_success: "Mensaje enviado correctamente",
+    form_error: "Error al enviar el mensaje",
     // Footer
     footer_copyright: "Copyright © 2026, casi todos los derechos reservados",
     footer_credits: "Créditos",
@@ -231,6 +235,8 @@ export const ui = {
     form_placeholder_message: "Ihre Nachricht",
     form_terms: "Ich stimme den Allgemeinen Geschäftsbedingungen zu",
     form_button_send: "Nachricht senden",
+    form_success: "Nachricht erfolgreich gesendet",
+    form_error: "Fehler beim Senden der Nachricht",
     // Footer
     footer_copyright: "Copyright © 2026, fast alle Rechte vorbehalten",
     footer_credits: "Credits",
