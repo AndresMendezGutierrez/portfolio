@@ -1,15 +1,15 @@
 export const validationRecaptchaV3 = async (token: string) => {
-  const url = import.meta.env.PUBLIC_CLOUD_FUNCTIONS_URL;
-  console.log(url);
-  console.log(token);
   try {
-    const response = await fetch(`${url}/verifyRecaptcha`, {
+    const response = await fetch(import.meta.env.PUBLIC_BACKEND_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ token }),
     });
+
+    if (!response.ok) throw new Error("Network response was not ok");
+
     const data = await response.json();
     return data.isValid;
   } catch (error) {

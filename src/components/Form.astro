@@ -1,12 +1,11 @@
 ---
 // components/Form.astro
-import { validationRecaptchaV3 } from "../services/recaptcha/recaptcha";
 import IconComponent from "./IconComponent.astro";
 import Spinner from "./spinner.astro";
 
 const { translate } = Astro.props;
 
-const RECAPTCHA_SITE_KEY: string = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_URL: string = import.meta.env.PUBLIC_RECAPTCHA_URL;
 
 const errorMessages = { required: translate("form_error_required"), email: translate("form_error_email") };
 ---
@@ -14,181 +13,201 @@ const errorMessages = { required: translate("form_error_required"), email: trans
 <form
   id="contact-form"
   class="space-y-6 font-normal text-xl/10 px-6"
-  data-recaptcha-site-key={RECAPTCHA_SITE_KEY}
+  data-recaptcha-site-key={RECAPTCHA_URL}
   data-error-messages={JSON.stringify(errorMessages)}
   novalidate
 >
   <input type="hidden" name="recaptcha_token" id="recaptcha_token" />
 
   <section class="group mb-3">
-    <label for="email" class="block">
-      {translate("form_label_email")}
-      <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
-    </label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      autocomplete="email"
-      class="w-full border border-black/30 bg-black/15 px-3.75 py-2.5 focus:ring-1 focus:ring-primary focus:border-transparent outline-none dark:border-white/30 dark:bg-white/15 transition-all"
-      placeholder={translate("form_placeholder_email")}
-      required
-      aria-required="true"
-    />
-  </section>
-
-  <section class="group mb-3">
-    <label for="subject" class="block">
-      {translate("form_label_subject")}
+    <label for="name" class="block">
+      {translate("form_label_name")}
       <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
     </label>
     <input
       type="text"
-      id="subject"
-      name="subject"
+      id="name"
+      name="name"
+      autocomplete="name"
       class="w-full border border-black/30 bg-black/15 px-3.75 py-2.5 focus:ring-1 focus:ring-primary focus:border-transparent outline-none dark:border-white/30 dark:bg-white/15 transition-all"
-      placeholder={translate("form_placeholder_subject")}
+      placeholder={translate("form_placeholder_name")}
       required
       aria-required="true"
     />
-  </section>
 
-  <section class="group mb-3">
-    <label for="message" class="block">
-      {translate("form_label_message")}
-      <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
-    </label>
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      class="w-full resize-y border border-black/30 bg-black/15 px-3.75 py-2.5 focus:ring-1 focus:ring-primary focus:border-transparent outline-none dark:border-white/30 dark:bg-white/15 transition-all"
-      placeholder={translate("form_placeholder_message")}
-      required
-      aria-required="true"></textarea>
-  </section>
-
-  <section class="flex items-center gap-3 text-xl/5.5">
-    <div class="flex h-5 items-center focus:border-transparent focus:ring-1 focus:ring-primary">
+    <section class="group mb-3">
+      <label for="email" class="block">
+        {translate("form_label_email")}
+        <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
+      </label>
       <input
-        id="terms"
-        name="terms"
-        type="checkbox"
-        class="h-4 w-4 rounded border-zinc-300 text-primary focus:ring-primary"
+        type="email"
+        id="email"
+        name="email"
+        autocomplete="email"
+        class="w-full border border-black/30 bg-black/15 px-3.75 py-2.5 focus:ring-1 focus:ring-primary focus:border-transparent outline-none dark:border-white/30 dark:bg-white/15 transition-all"
+        placeholder={translate("form_placeholder_email")}
         required
         aria-required="true"
       />
-    </div>
-    <label for="terms" class="cursor-pointer select-none">
-      {translate("form_terms")}
-      <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
-    </label>
+    </section>
+
+    <section class="group mb-3">
+      <label for="subject" class="block">
+        {translate("form_label_subject")}
+        <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
+      </label>
+      <input
+        type="text"
+        id="subject"
+        name="subject"
+        class="w-full border border-black/30 bg-black/15 px-3.75 py-2.5 focus:ring-1 focus:ring-primary focus:border-transparent outline-none dark:border-white/30 dark:bg-white/15 transition-all"
+        placeholder={translate("form_placeholder_subject")}
+        required
+        aria-required="true"
+      />
+    </section>
+
+    <section class="group mb-3">
+      <label for="message" class="block">
+        {translate("form_label_message")}
+        <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="5"
+        class="w-full resize-y border border-black/30 bg-black/15 px-3.75 py-2.5 focus:ring-1 focus:ring-primary focus:border-transparent outline-none dark:border-white/30 dark:bg-white/15 transition-all"
+        placeholder={translate("form_placeholder_message")}
+        required
+        aria-required="true"></textarea>
+    </section>
+
+    <section class="flex items-center gap-3 text-xl/5.5">
+      <div class="flex h-5 items-center focus:border-transparent focus:ring-1 focus:ring-primary">
+        <input
+          id="terms"
+          name="terms"
+          type="checkbox"
+          class="h-4 w-4 rounded border-zinc-300 text-primary focus:ring-primary"
+          required
+          aria-required="true"
+        />
+      </div>
+      <label for="terms" class="cursor-pointer select-none">
+        {translate("form_terms")}
+        <span class="error-msg text-base text-primary/60 transition-colors" aria-hidden="true">*</span>
+      </label>
+    </section>
+
+    <button
+      type="submit"
+      id="submit-button"
+      class="flex w-full justify-center bg-primary py-4 font-medium text-base text-black transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      <span id="submit-text" class="flex items-center gap-3">
+        <span>{translate("form_button_send")}</span>
+        <IconComponent icon="arrow-right" class="h-6.5 w-6.5" aria-hidden="true" />
+      </span>
+      <Spinner id="spinner" class="hidden h-6.5 w-6.5" aria-hidden="true" />
+    </button>
   </section>
 
-  <button
-    type="submit"
-    id="submit-button"
-    class="flex w-full justify-center bg-primary py-4 font-medium text-base text-black transition-all hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
-  >
-    <span id="submit-text" class="flex items-center gap-3">
-      <span>{translate("form_button_send")}</span>
-      <IconComponent icon="arrow-right" class="h-6.5 w-6.5" aria-hidden="true" />
-    </span>
-    <Spinner id="spinner" class="hidden h-6.5 w-6.5" aria-hidden="true" />
-  </button>
-</form>
+  <script is:inline src={RECAPTCHA_URL}></script>
 
-<script is:inline src={`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`}></script>
+  <script>
+    import { validationRecaptchaV3 } from "../services/recaptcha/recaptcha";
 
-<script>
-  import { validationRecaptchaV3 } from "../services/recaptcha/recaptcha";
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const submitBtn = document.getElementById("submit-button") as HTMLButtonElement;
+    const submitText = document.getElementById("submit-text") as HTMLSpanElement;
+    const spinner = document.getElementById("spinner") as HTMLSpanElement;
 
-  const form = document.getElementById("contact-form") as HTMLFormElement;
-  const submitBtn = document.getElementById("submit-button") as HTMLButtonElement;
-  const submitText = document.getElementById("submit-text") as HTMLSpanElement;
-  const spinner = document.getElementById("spinner") as HTMLSpanElement;
+    const RECAPTCHA_SITE_KEY = form.dataset.recaptchaSiteKey!;
+    const errorMessages = JSON.parse(form.dataset.errorMessages!) as { required: string; email: string };
 
-  const RECAPTCHA_SITE_KEY = form.dataset.recaptchaSiteKey!;
-  const errorMessages = JSON.parse(form.dataset.errorMessages!) as { required: string; email: string };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const sendForm = async (formData: FormData) => {
+      console.log(formData.get("email"));
+      console.log(formData.get("subject"));
+      console.log(formData.get("message"));
+      console.log(formData.get("terms"));
+      return "";
+    };
 
-  const sendForm = async (formData: FormData) => {
-    console.log(formData);
-    return "";
-  };
+    const validateField = (input: HTMLInputElement | HTMLTextAreaElement) => {
+      const section = input.closest("section") || input.parentElement?.parentElement;
+      const errorSpan = section?.querySelector(".error-msg");
+      let isValid = true;
+      let message = "*";
 
-  const validateField = (input: HTMLInputElement | HTMLTextAreaElement) => {
-    const section = input.closest("section") || input.parentElement?.parentElement;
-    const errorSpan = section?.querySelector(".error-msg");
-    let isValid = true;
-    let message = "*";
-
-    if (input.required && (input.type === "checkbox" ? !(input as HTMLInputElement).checked : !input.value.trim())) {
-      isValid = false;
-      message = errorMessages.required;
-    } else if (input.type === "email" && input.value.trim() !== "" && !emailRegex.test(input.value)) {
-      isValid = false;
-      message = errorMessages.email;
-    }
-
-    if (errorSpan) {
-      errorSpan.textContent = message;
-      if (!isValid) {
-        errorSpan.classList.replace("text-primary/60", "text-red-500");
-        input.classList.add("border-red-500", "focus:ring-red-500");
-      } else {
-        errorSpan.classList.replace("text-red-500", "text-primary/60");
-        input.classList.remove("border-red-500", "focus:ring-red-500");
+      if (input.required && (input.type === "checkbox" ? !(input as HTMLInputElement).checked : !input.value.trim())) {
+        isValid = false;
+        message = errorMessages.required;
+      } else if (input.type === "email" && input.value.trim() !== "" && !emailRegex.test(input.value)) {
+        isValid = false;
+        message = errorMessages.email;
       }
-    }
 
-    return isValid;
-  };
+      if (errorSpan) {
+        errorSpan.textContent = message;
+        if (!isValid) {
+          errorSpan.classList.replace("text-primary/60", "text-red-500");
+          input.classList.add("border-red-500", "focus:ring-red-500");
+        } else {
+          errorSpan.classList.replace("text-red-500", "text-primary/60");
+          input.classList.remove("border-red-500", "focus:ring-red-500");
+        }
+      }
 
-  form?.querySelectorAll("input, textarea").forEach((input) => {
-    const element = input as HTMLInputElement | HTMLTextAreaElement;
-    element.addEventListener("input", () => validateField(element));
-    element.addEventListener("blur", () => validateField(element));
-  });
+      return isValid;
+    };
 
-  form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const inputs = Array.from(form.querySelectorAll("input, textarea")) as (HTMLInputElement | HTMLTextAreaElement)[];
-
-    const formResults = inputs.map((input) => validateField(input));
-    const isFormValid = formResults.every((result) => result === true);
-
-    if (!isFormValid) {
-      const firstError = form.querySelector(".text-red-500");
-      firstError?.scrollIntoView({ behavior: "smooth", block: "center" });
-      return;
-    }
-
-    if (submitBtn) submitBtn.disabled = true;
-    if (submitText) submitText.classList.add("hidden");
-    if (spinner) spinner.classList.remove("hidden");
-
-    (window as any).grecaptcha.ready(() => {
-      (window as any).grecaptcha
-        .execute(RECAPTCHA_SITE_KEY, { action: "contact_form" })
-        .then((token: string) => {
-          const tokenInput = document.getElementById("recaptcha_token") as HTMLInputElement;
-          if (tokenInput) tokenInput.value = token;
-          validationRecaptchaV3(token).then((isValid) => {
-            console.log(isValid);
-            if (isValid) {
-              sendForm(new FormData(form));
-            }
-          });
-        })
-        .catch((error: Error) => {
-          console.error("Error en reCAPTCHA:", error);
-          if (submitBtn) submitBtn.disabled = false;
-          if (submitText) submitText.classList.remove("hidden");
-          if (spinner) spinner.classList.add("hidden");
-        });
+    form?.querySelectorAll("input, textarea").forEach((input) => {
+      const element = input as HTMLInputElement | HTMLTextAreaElement;
+      element.addEventListener("input", () => validateField(element));
+      element.addEventListener("blur", () => validateField(element));
     });
-  });
-</script>
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const inputs = Array.from(form.querySelectorAll("input, textarea")) as (HTMLInputElement | HTMLTextAreaElement)[];
+
+      const formResults = inputs.map((input) => validateField(input));
+      const isFormValid = formResults.every((result) => result === true);
+
+      if (!isFormValid) {
+        const firstError = form.querySelector(".text-red-500");
+        firstError?.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitText) submitText.classList.add("hidden");
+      if (spinner) spinner.classList.remove("hidden");
+
+      (window as any).grecaptcha.ready(() => {
+        (window as any).grecaptcha
+          .execute(RECAPTCHA_SITE_KEY, { action: "contact_form" })
+          .then((token: string) => {
+            const tokenInput = document.getElementById("recaptcha_token") as HTMLInputElement;
+            if (tokenInput) tokenInput.value = token;
+            validationRecaptchaV3(token).then((isValid: boolean) => {
+              console.log(isValid);
+              if (isValid) {
+                sendForm(new FormData(form));
+              }
+            });
+          })
+          .catch((error: Error) => {
+            console.error("Error en reCAPTCHA:", error);
+            if (submitBtn) submitBtn.disabled = false;
+            if (submitText) submitText.classList.remove("hidden");
+            if (spinner) spinner.classList.add("hidden");
+          });
+      });
+    });
+  </script>
+</form>
