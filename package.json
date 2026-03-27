@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@emnapi/runtime": "^1.8.1",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
