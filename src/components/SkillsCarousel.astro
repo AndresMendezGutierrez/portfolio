@@ -1,6 +1,8 @@
 ---
+import type { Skill } from "../types";
+
 interface Props {
-  skills?: { name: string; icon: string; id: number }[];
+  skills?: Skill[];
 }
 
 const skills = Astro.props.skills || [];

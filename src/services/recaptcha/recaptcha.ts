@@ -1,4 +1,4 @@
-import type { ContactResponse } from "../types";
+import type { ContactResponse, RecaptchaVerifyResponse } from "../../types";
 
 export const verifyRecaptcha = async (token: string): Promise<ContactResponse> => {
   try {
@@ -8,13 +8,13 @@ export const verifyRecaptcha = async (token: string): Promise<ContactResponse> =
       body: JSON.stringify({ token }),
     });
 
-    const data = await response.json();
+    const data: RecaptchaVerifyResponse = await response.json();
 
     return {
       success: data.isValid,
       errorType: data.isValid ? undefined : "error_captcha",
     };
-  } catch (error) {
+  } catch (_error: unknown) {
     return { success: false, errorType: "error_network" };
   }
 };

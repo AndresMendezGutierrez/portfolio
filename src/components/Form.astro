@@ -1,20 +1,15 @@
 ---
+import type { TranslateOnlyProps, UIMessageMap } from "../types";
 import IconComponent from "./IconComponent.astro";
 import Spinner from "./spinner.astro";
+
+interface Props extends TranslateOnlyProps {}
 
 const { translate } = Astro.props;
 
 const RECAPTCHA_URL: string = import.meta.env.PUBLIC_RECAPTCHA_URL;
 const RECAPTCHA_SITE_KEY: string = import.meta.env.RECAPTCHA_SITE_KEY;
 
-interface UIMessageMap {
-  required: string;
-  email: string;
-  form_success: string;
-  error_captcha: string;
-  error_mail: string;
-  error_network: string;
-}
 const uiMessages: UIMessageMap = {
   required: translate("form_error_required"),
   email: translate("form_error_email"),

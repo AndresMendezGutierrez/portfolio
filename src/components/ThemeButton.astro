@@ -1,6 +1,10 @@
 ---
 import IconComponent from "./IconComponent.astro";
 
+interface Props {
+  class?: string;
+}
+
 const { class: className } = Astro.props;
 ---
 

@@ -1,6 +1,9 @@
 ---
+import type { LocaleProps } from "../types";
 import { getTranslatedPath, languages } from "../assets/i18n/utils";
 import IconComponent from "./IconComponent.astro";
+
+interface Props extends LocaleProps {}
 
 const { currentLang, translate } = Astro.props;
 

@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import type { ContactResponse } from "../types";
+import type { ContactResponse } from "../../types";
 
 export const sendEmail = async (form: HTMLFormElement): Promise<ContactResponse> => {
   try {
@@ -11,7 +11,7 @@ export const sendEmail = async (form: HTMLFormElement): Promise<ContactResponse>
     );
 
     return { success: result.status === 200 };
-  } catch (error) {
+  } catch (error: unknown) {
     console.error("Mail Error:", error);
     return {
       success: false,

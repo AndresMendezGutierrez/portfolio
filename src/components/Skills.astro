@@ -1,10 +1,13 @@
 ---
+import type { TranslateOnlyProps, Skill } from "../types";
 import SkillsCarousel from "./SkillsCarousel.astro";
 import { getRemoteConfigValue } from "../firebase/remoteConfig";
 
+interface Props extends TranslateOnlyProps {}
+
 const { translate } = Astro.props;
 
-let skills: { name: string; icon: string; id: number }[] | undefined;
+let skills: Skill[] | undefined;
 
 try {
   const skillsJson = await getRemoteConfigValue("skills", "");

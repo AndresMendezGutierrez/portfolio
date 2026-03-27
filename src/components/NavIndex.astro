@@ -1,7 +1,14 @@
 ---
+import type { LocaleProps, NavItem } from "../types";
+
+interface Props extends LocaleProps {
+  id?: string;
+  class?: string;
+}
+
 const { class: className, id, currentLang, translate } = Astro.props;
 
-const navItems = [
+const navItems: NavItem[] = [
   { id: "intro", label: "nav_intro" },
   { id: "about", label: "nav_about" },
   { id: "what-i-do", label: "nav_wid" },

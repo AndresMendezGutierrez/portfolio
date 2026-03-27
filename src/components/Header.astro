@@ -1,8 +1,11 @@
 ---
+import type { LocaleProps } from "../types";
 import HamburguerButton from "./HamburguerButton.astro";
 import NavIndex from "./NavIndex.astro";
 import LanguagePicker from "./LanguagePicker.astro";
 import ThemeButton from "./ThemeButton.astro";
+
+interface Props extends LocaleProps {}
 
 const { currentLang, translate } = Astro.props;
 ---
@@ -15,7 +18,7 @@ const { currentLang, translate } = Astro.props;
   <nav class="flex items-center gap-1 md:gap-7">
     <ThemeButton class="hidden md:block p-1 rounded-lg" />
     <LanguagePicker currentLang={currentLang} translate={translate} />
-    <HamburguerButton currentLang={currentLang} translate={translate} />
+    <HamburguerButton translate={translate} />
   </nav>
 </section>
 

@@ -1,7 +1,10 @@
 ---
+import type { TranslateOnlyProps } from "../types";
 import Form from "./Form.astro";
 import IconComponent from "./IconComponent.astro";
 import Toast from "./Toast.astro";
+
+interface Props extends TranslateOnlyProps {}
 
 const { translate } = Astro.props;
 ---

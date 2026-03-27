@@ -1,5 +1,8 @@
 ---
+import type { TranslateOnlyProps } from "../types";
 import IconComponent from "./IconComponent.astro";
+
+interface Props extends TranslateOnlyProps {}
 
 const { translate } = Astro.props;
 ---

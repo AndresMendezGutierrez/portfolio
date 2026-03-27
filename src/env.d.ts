@@ -1,3 +1,7 @@
+/// <reference types="astro/client" />
+
+import type { ToastAPI, GrecaptchaAPI } from "./types";
+
 interface ImportMetaEnv {
   readonly FIREBASE_PRIVATE_KEY_ID: string;
   readonly FIREBASE_PRIVATE_KEY: string;
@@ -20,4 +24,11 @@ interface ImportMetaEnv {
 
 interface ImportMeta {
   readonly env: ImportMetaEnv;
+}
+
+declare global {
+  interface Window {
+    toast?: ToastAPI;
+    grecaptcha?: GrecaptchaAPI;
+  }
 }

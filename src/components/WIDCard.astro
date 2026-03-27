@@ -1,7 +1,11 @@
 ---
+import type { TranslateOnlyProps, WIDItem } from "../types";
+
+interface Props extends TranslateOnlyProps {}
+
 const { translate } = Astro.props;
 
-const widList = [
+const widList: WIDItem[] = [
   { title: "wid_web_development_title", description: "wid_web_development_description", icon: "development-icon" },
   { title: "wid_frontend_title", description: "wid_frontend_description", icon: "frontend-icon" },
   { title: "wid_maintenance_title", description: "wid_maintenance_description", icon: "maintenance-icon" },
