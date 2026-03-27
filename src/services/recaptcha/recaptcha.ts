@@ -1,19 +1,20 @@
-export const validationRecaptchaV3 = async (token: string) => {
+import type { ContactResponse } from "../types";
+
+export const verifyRecaptcha = async (token: string): Promise<ContactResponse> => {
   try {
     const response = await fetch(import.meta.env.PUBLIC_BACKEND_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ token }),
     });
 
-    if (!response.ok) throw new Error("Network response was not ok");
-
     const data = await response.json();
-    return data.isValid;
+
+    return {
+      success: data.isValid,
+      errorType: data.isValid ? undefined : "error_captcha",
+    };
   } catch (error) {
-    console.error("Error validating reCAPTCHA:", error);
-    return false;
+    return { success: false, errorType: "error_network" };
   }
 };
