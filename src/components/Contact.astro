@@ -1,6 +1,7 @@
 ---
 import Form from "./Form.astro";
 import IconComponent from "./IconComponent.astro";
+import Toast from "./Toast.astro";
 
 const { translate } = Astro.props;
 ---
@@ -48,4 +49,5 @@ const { translate } = Astro.props;
   </p>
 </section>
 
+<Toast />
 <Form translate={translate} />
