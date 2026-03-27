@@ -78,8 +78,11 @@ export const ui = {
     form_placeholder_message: "Your message",
     form_terms: "I agree with the terms and conditions",
     form_button_send: "Send message",
+    // Toast messages
     form_success: "Message sent successfully",
-    form_error: "Error sending message",
+    error_captcha: "Security validation error",
+    error_mail: "There was a problem sending the email. Please try again.",
+    error_network: "There is no connection to the server. Please check your internet connection and try again.",
     // Footer
     footer_copyright: "Copyright © 2026, almost all rights reserved",
     footer_credits: "Credits",
@@ -157,8 +160,11 @@ export const ui = {
     form_placeholder_message: "Tu mensaje",
     form_terms: "Acepto los términos y condiciones",
     form_button_send: "Enviar mensaje",
+    // Toast messages
     form_success: "Mensaje enviado correctamente",
-    form_error: "Error al enviar el mensaje",
+    error_captcha: "Error de validación de seguridad",
+    error_mail: "Error al enviar el correo electrónico. Por favor, inténtalo de nuevo.",
+    error_network: "No hay conexión con el servidor. Por favor, revisa tu conexión a internet e inténtalo de nuevo.",
     // Footer
     footer_copyright: "Copyright © 2026, casi todos los derechos reservados",
     footer_credits: "Créditos",
@@ -235,8 +241,12 @@ export const ui = {
     form_placeholder_message: "Ihre Nachricht",
     form_terms: "Ich stimme den Allgemeinen Geschäftsbedingungen zu",
     form_button_send: "Nachricht senden",
+    // Toast messages
     form_success: "Nachricht erfolgreich gesendet",
-    form_error: "Fehler beim Senden der Nachricht",
+    error_captcha: "Sicherheitsvalidierungsfehler",
+    error_mail: "Es gab ein Problem beim Senden der E-Mail. Bitte versuchen Sie es erneut.",
+    error_network:
+      "Es besteht keine Verbindung zum Server. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
     // Footer
     footer_copyright: "Copyright © 2026, fast alle Rechte vorbehalten",
     footer_credits: "Credits",
