@@ -6,6 +6,7 @@ import Footer from "./Footer.astro";
 import Intro from "./Intro.astro";
 import MainComponent from "./MainComponent.astro";
 import NavIndex from "./NavIndex.astro";
+import Projects from "./Projects.astro";
 import Skills from "./Skills.astro";
 import WhatIDo from "./WhatIDo.astro";
 
@@ -29,6 +30,10 @@ const { translate, currentLang } = Astro.props;
 
   <section id="skills" class="flex flex-col gap-4 py-12">
     <Skills translate={translate} />
+  </section>
+
+  <section id="projects" class="flex flex-col gap-12 py-12">
+    <Projects translate={translate} />
   </section>
 
   <section id="contact" class="mx-auto max-w-2xl py-12">
