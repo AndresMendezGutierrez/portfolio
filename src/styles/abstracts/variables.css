@@ -10,12 +10,17 @@
   --default-font-family: "Sometype Mono";
   --font-workbench: "Workbench";
 
-  --text-28: 1.75rem;
-  --text-28--line-height: 100%;
+  --text-2xs: 0.625rem;
+  --text-2xs--line-height: 100%;
 
-  --text-32: 2rem;
-  --text-32--line-height: 100%;
+  --text-2\.5xl: 1.75rem;
+  --text-2\.5xl--line-height: 100%;
 
-  --text-38: 2.375rem;
-  --text-38--line-height: 100%;
+  --text-3\.25xl: 2rem;
+  --text-3\.25xl--line-height: 100%;
+
+  --text-4\.25xl: 2.375rem;
+  --text-4\.25xl--line-height: 100%;
+
+  --tracking-small: 0, 0125rem;
 }
