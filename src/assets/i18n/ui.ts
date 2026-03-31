@@ -83,6 +83,7 @@ export const ui = {
     error_captcha: "Security validation error",
     error_mail: "There was a problem sending the email. Please try again.",
     error_network: "There is no connection to the server. Please check your internet connection and try again.",
+    button_close: "Close",
     // Footer
     footer_copyright: "Copyright © 2026, almost all rights reserved",
     footer_credits: "Credits",
@@ -166,6 +167,7 @@ export const ui = {
     error_captcha: "Error de validación de seguridad",
     error_mail: "Error al enviar el correo electrónico. Por favor, inténtalo de nuevo.",
     error_network: "No hay conexión con el servidor. Por favor, revisa tu conexión a internet e inténtalo de nuevo.",
+    button_close: "Cerrar",
     // Footer
     footer_copyright: "Copyright © 2026, casi todos los derechos reservados",
     footer_credits: "Créditos",
@@ -249,6 +251,7 @@ export const ui = {
     error_mail: "Es gab ein Problem beim Senden der E-Mail. Bitte versuchen Sie es erneut.",
     error_network:
       "Es besteht keine Verbindung zum Server. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    button_close: "Schließen",
     // Footer
     footer_copyright: "Copyright © 2026, fast alle Rechte vorbehalten",
     footer_credits: "Credits",

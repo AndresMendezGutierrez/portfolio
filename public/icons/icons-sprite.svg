@@ -308,5 +308,15 @@
       <path d="M7.16 18.37l0 .01" />
       <path d="M11 19.94l0 .01" />
     </symbol>
+
+    <symbol id="check" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M5 11.917 9.724 16.5 19 7.5" />
+    </symbol>
+
+    <symbol id="icon-x" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M6 18 17.94 6M18 18 6.06 6" />
+    </symbol>
   </defs>
 </svg>

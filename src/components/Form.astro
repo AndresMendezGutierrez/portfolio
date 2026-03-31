@@ -183,10 +183,10 @@ const uiMessages: UIMessageMap = {
 
   const waitForToast = (timeoutMs = 3000) => {
     return new Promise((resolve) => {
-      if ((window as any).toast) return resolve(true);
+      if (window.toast) return resolve(true);
 
       const interval = setInterval(() => {
-        if ((window as any).toast) {
+        if (window.toast) {
           clearInterval(interval);
           clearTimeout(timeout);
           resolve(true);
@@ -215,13 +215,13 @@ const uiMessages: UIMessageMap = {
     setLoading(true);
 
     try {
-      if (typeof (window as any).grecaptcha === "undefined") {
+      if (typeof window.grecaptcha === "undefined") {
         throw new Error("error_network");
       }
 
       const token = await new Promise<string>((resolve) => {
-        (window as any).grecaptcha.ready(async () => {
-          const t = await (window as any).grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: "submit" });
+        window.grecaptcha?.ready(async () => {
+          const t = (await window.grecaptcha?.execute(RECAPTCHA_SITE_KEY, { action: "submit" })) || "";
           resolve(t);
         });
       });
@@ -238,14 +238,14 @@ const uiMessages: UIMessageMap = {
 
       const successMsg = uiMessages["form_success"];
       await waitForToast();
-      (window as any).toast?.show(successMsg, "success");
+      window.toast?.show(successMsg, "success");
 
       form.reset();
-    } catch (error: any) {
-      const errorKey = error.message || "error_network";
+    } catch (error: unknown) {
+      const errorKey = error instanceof Error ? error.message : "error_network";
       const errorMsg = uiMessages[errorKey] || uiMessages["error_network"];
       await waitForToast();
-      (window as any).toast?.show(errorMsg, "error");
+      window.toast?.show(errorMsg, "error");
     } finally {
       setLoading(false);
     }
