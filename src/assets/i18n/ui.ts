@@ -57,6 +57,10 @@ export const ui = {
     // Skills
     skills_title: "Skills",
     skills_description: "These are some of the technologies and tools I have worked with in my learning process.",
+    // Projects
+    projects_title: "Projects",
+    projects_description: "These are some of the projects i've worked in.",
+    projects_repo: "Go to project repo",
     // Contact
     contact_title: "Get in touch",
     contact_label_menu: "Social networks and direct contact",
@@ -140,6 +144,10 @@ export const ui = {
     skills_title: "Habilidades",
     skills_description:
       "Estas son algunas de las tecnologías y herramientas con las que he trabajado en mi proceso de aprendizaje.",
+    // Projects
+    projects_title: "Proyectos",
+    projects_description: "Estos son algunos de los proyectos en los que he trabajado.",
+    projects_repo: "Ir al repositorio del proyecto",
     // Contact
     contact_title: "Ponte en contacto",
     contact_label_menu: "Redes sociales y contacto directo",
@@ -223,6 +231,10 @@ export const ui = {
     skills_title: "Fähigkeiten",
     skills_description:
       "Dies sind einige der Technologien und Werkzeuge, mit denen ich in meinem Lernprozess gearbeitet habe.",
+    // Projects
+    projects_title: "Projekte",
+    projects_description: "Dies sind einige der Projekte, an denen ich gearbeitet habe.",
+    projects_repo: "Zum Projekt-Repo gehen",
     // Contact
     contact_title: "Kontakt aufnehmen",
     contact_label_menu: "Soziale Netzwerke und direkter Kontakt",
