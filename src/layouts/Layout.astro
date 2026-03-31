@@ -1,11 +1,12 @@
 ---
+import type { Locale } from "../types";
 import type { useTranslations } from "../assets/i18n/utils";
 import GridBackground from "../components/GridBackground.astro";
 import Header from "../components/Header.astro";
 import ThemeButton from "../components/ThemeButton.astro";
 
 interface Props {
-  currentLang: "en" | "es" | "de";
+  currentLang: Locale;
   translate: ReturnType<typeof useTranslations>;
 }
 
