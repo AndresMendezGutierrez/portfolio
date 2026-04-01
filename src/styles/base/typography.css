@@ -1,34 +1,39 @@
 @font-face {
   font-family: "Workbench";
-  src: url("/fonts/Workbench.ttf") format("truetype");
-  font-weight: normal;
+  src: url("/fonts/Workbench.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Sometype Mono";
-  src: url("/fonts/SometypeMono-Regular.ttf") format("truetype");
-  font-weight: normal;
+  src: url("/fonts/SometypeMono-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Sometype Mono";
-  src: url("/fonts/SometypeMono-Medium.ttf") format("truetype");
-  font-weight: medium;
+  src: url("/fonts/SometypeMono-Medium.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Sometype Mono";
-  src: url("/fonts/SometypeMono-SemiBold.ttf") format("truetype");
-  font-weight: semibold;
+  src: url("/fonts/SometypeMono-SemiBold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Sometype Mono";
-  src: url("/fonts/SometypeMono-Bold.ttf") format("truetype");
-  font-weight: bold;
+  src: url("/fonts/SometypeMono-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-weight: 700;
   font-style: normal;
 }
