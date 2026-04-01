@@ -88,6 +88,9 @@ export const ui = {
     error_mail: "There was a problem sending the email. Please try again.",
     error_network: "There is no connection to the server. Please check your internet connection and try again.",
     button_close: "Close",
+    // Recaptcha disclaimer
+    recaptcha_disclaimer:
+      'This form is protected by reCAPTCHA and the Google´s <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-primary">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" class="text-primary">Terms of Service</a> apply',
     // Footer
     footer_copyright: "Copyright © 2026, almost all rights reserved",
     footer_credits: "Credits",
@@ -176,6 +179,9 @@ export const ui = {
     error_mail: "Error al enviar el correo electrónico. Por favor, inténtalo de nuevo.",
     error_network: "No hay conexión con el servidor. Por favor, revisa tu conexión a internet e inténtalo de nuevo.",
     button_close: "Cerrar",
+    // Recaptcha disclaimer
+    recaptcha_disclaimer:
+      'Este sitio está protegido por reCAPTCHA y aplican la <a href="https://www.google.com/intl/es/policies/privacy/" target="_blank" rel="noopener noreferrer" class="text-primary">Política de Privacidad</a>  y los <a href="https://www.google.com/intl/es/policies/terms/" target="_blank" rel="noopener noreferrer" class="text-primary">Términos de Servicio</a> de Google',
     // Footer
     footer_copyright: "Copyright © 2026, casi todos los derechos reservados",
     footer_credits: "Créditos",
@@ -264,6 +270,9 @@ export const ui = {
     error_network:
       "Es besteht keine Verbindung zum Server. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
     button_close: "Schließen",
+    // Recaptcha disclaimer
+    recaptcha_disclaimer:
+      'Dieses Formular ist durch reCAPTCHA geschützt und die Google <a href="https://www.google.com/intl/de/policies/privacy/" target="_blank" rel="noopener noreferrer" class="text-primary">Datenschutzbestimmungen</a> und <a href="https://www.google.com/intl/de/policies/terms/" target="_blank" rel="noopener noreferrer" class="text-primary">Nutzungsbedingungen</a> gelten',
     // Footer
     footer_copyright: "Copyright © 2026, fast alle Rechte vorbehalten",
     footer_credits: "Credits",

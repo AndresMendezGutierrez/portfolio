@@ -6,4 +6,8 @@
   button {
     cursor: pointer;
   }
+
+  .grecaptcha-badge {
+    visibility: hidden !important;
+  }
 }

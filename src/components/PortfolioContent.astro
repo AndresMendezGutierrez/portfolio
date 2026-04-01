@@ -39,6 +39,8 @@ const { translate, currentLang } = Astro.props;
   <section id="contact" class="mx-auto max-w-2xl py-12">
     <Contact translate={translate} />
   </section>
+
+  <p class="my-2" set:html={translate("recaptcha_disclaimer")} />
 </MainComponent>
 
 <NavIndex
