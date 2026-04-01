@@ -1,5 +1,4 @@
 ---
-// components/ProjectCard.astro
 import IconComponent from "./IconComponent.astro";
 
 interface Props {
@@ -15,21 +14,16 @@ const { title, description, tags, repoUrl, imageUrl, translate } = Astro.props;
 ---
 
 <article
-  class="group min-w-76 max-w-80.5 flex flex-col border border-black/30 dark:border-white/30 bg-white dark:bg-black transition-all duration-300 hover:bg-white/15 dark:hover:bg-black/15 hover:transform hover:scale-105"
+  class="snap-center group shrink-0 max-w-76 md:max-w-80.5 flex flex-col border border-black/30 dark:border-white/30 bg-white dark:bg-black transition-all duration-300 hover:transform hover:scale-103 hover:bg-black/10 hover:dark:bg-white/15"
 >
-  <figure class="aspect-4/3 overflow-hidden border-b border-black/30 dark:border-white/30">
-    <img
-      src={imageUrl}
-      alt={`Captura de pantalla del proyecto ${title}`}
-      class="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-hover:scale-105"
-      loading="lazy"
-    />
+  <figure class="aspect-4/3 border-b border-black/30 dark:border-white/30">
+    <img src={imageUrl} alt={`${translate("projects_image_alt")}${title}`} class="h-full w-full" loading="lazy" />
   </figure>
-  <section class="py-5.5 px-4.5 flex flex-col gap-4 grow transition-colors duration-300">
-    <ul class="flex flex-wrap gap-2" aria-label="Tecnologías usadas">
+  <section class="py-5.5 px-4.5 flex flex-col gap-4">
+    <ul class="flex flex-wrap gap-2" aria-label={translate("projects_tags_label")}>
       {
         tags.map((tag) => (
-          <li class="border border-black/20 dark:border-white/20 px-2 py-1 text-2xs tracking-small opacity-70">
+          <li class="border border-black/20 dark:border-white/20 px-2 py-1 font-medium text-2xs tracking-small">
             {tag}
           </li>
         ))
@@ -39,7 +33,7 @@ const { title, description, tags, repoUrl, imageUrl, translate } = Astro.props;
       {title}
     </h3>
 
-    <p class="text-base leading-relaxed opacity-80 line-clamp-4 grow font-mono">
+    <p class="text-base leading-relaxed opacity-80 line-clamp-4 font-mono">
       {description}
     </p>
 
@@ -47,7 +41,7 @@ const { title, description, tags, repoUrl, imageUrl, translate } = Astro.props;
       href={repoUrl}
       target="_blank"
       rel="noopener noreferrer"
-      class="mt-4 flex items-center justify-center gap-3 border border-black dark:border-white py-3 px-6 text-sm font-medium tracking-widest transition-all hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+      class="mt-4 flex items-center justify-center gap-3 border border-black dark:border-white py-3 px-6 text-sm font-medium tracking-[-0.32px] transition-all hover:bg-black/15 dark:hover:bg-white/20"
     >
       <span>{translate("projects_repo")}</span>
       <IconComponent icon="external-link" class="w-5 h-5" />

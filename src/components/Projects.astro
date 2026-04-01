@@ -1,4 +1,5 @@
 ---
+import IconComponent from "./IconComponent.astro";
 import ProjectCard from "./ProjectCard.astro";
 
 const projects = [
@@ -27,20 +28,35 @@ const projects = [
 const { translate } = Astro.props;
 ---
 
-<header class="block gap-7">
-  <h2 class="text-3.25xl">{translate("projects_title")}</h2>
-  <p class="text-xl">{translate("projects_description")}</p>
+<header class="flex justify-between items-end">
+  <section class="space-y-7">
+    <h2 class="text-3.25xl font-semibold">{translate("projects_title")}</h2>
+    <p class="text-xl max-w-xl">{translate("projects_description")}</p>
+  </section>
+
+  <nav class="hidden md:flex gap-4">
+    <button
+      id="prev-project"
+      class="p-3 border border-black/30 dark:border-white/30 hover:bg-primary hover:text-black transition-colors cursor-pointer"
+      aria-label={translate("projects_previous")}
+    >
+      <IconComponent icon="arrow-right" class="w-6 h-6 rotate-180" />
+    </button>
+    <button
+      id="next-project"
+      class="p-3 border border-black/30 dark:border-white/30 hover:bg-primary hover:text-black transition-colors cursor-pointer"
+      aria-label={translate("projects_next")}
+    >
+      <IconComponent icon="arrow-right" class="w-6 h-6" />
+    </button>
+  </nav>
 </header>
 
-<section class="w-full flex overflow-x-auto gap-8 lg:gap-9.5 py-8 scroll-smooth snap-x snap-mandatory hide-scrollbar">
-  {
-    projects.map((project) => (
-      <div class="snap-center">
-        {" "}
-        <ProjectCard translate={translate} {...project} />
-      </div>
-    ))
-  }
+<section
+  id="project-container"
+  class="flex gap-8 lg:gap-9.5 overflow-x-auto py-2 px-2 scroll-smooth snap-x snap-mandatory hide-scrollbar"
+>
+  {projects.map((project) => <ProjectCard translate={translate} {...project} />)}
 </section>
 
 <style>
@@ -52,3 +68,36 @@ const { translate } = Astro.props;
     scrollbar-width: none;
   }
 </style>
+
+<script>
+  const container = document.getElementById("project-container");
+  const prevBtn = document.getElementById("prev-project");
+  const nextBtn = document.getElementById("next-project");
+
+  const getScrollAmount = () => {
+    if (!container) return 0;
+    const firstCard = container.querySelector("article");
+    return firstCard ? firstCard.clientWidth + 32 : 350;
+  };
+
+  nextBtn?.addEventListener("click", () => {
+    container?.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+  });
+
+  prevBtn?.addEventListener("click", () => {
+    container?.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+  });
+
+  container?.addEventListener("scroll", () => {
+    if (!container || !prevBtn || !nextBtn) return;
+
+    const isAtStart = container.scrollLeft <= 0;
+    const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
+
+    prevBtn.style.opacity = isAtStart ? "0.3" : "1";
+    prevBtn.style.pointerEvents = isAtStart ? "none" : "auto";
+
+    nextBtn.style.opacity = isAtEnd ? "0.3" : "1";
+    nextBtn.style.pointerEvents = isAtEnd ? "none" : "auto";
+  });
+</script>

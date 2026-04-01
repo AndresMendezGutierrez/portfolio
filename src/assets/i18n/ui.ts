@@ -60,6 +60,10 @@ export const ui = {
     // Projects
     projects_title: "Projects",
     projects_description: "These are some of the projects i've worked in.",
+    projects_previous: "Previous project",
+    projects_next: "Next project",
+    projects_image_alt: "Image of project ",
+    projects_tags_label: "Technologies used",
     projects_repo: "Go to project repo",
     // Contact
     contact_title: "Get in touch",
@@ -150,6 +154,10 @@ export const ui = {
     // Projects
     projects_title: "Proyectos",
     projects_description: "Estos son algunos de los proyectos en los que he trabajado.",
+    projects_previous: "Proyecto anterior",
+    projects_next: "Siguiente proyecto",
+    projects_image_alt: "Imagen del proyecto ",
+    projects_tags_label: "Tecnologías usadas",
     projects_repo: "Ir al repositorio del proyecto",
     // Contact
     contact_title: "Ponte en contacto",
@@ -240,6 +248,10 @@ export const ui = {
     // Projects
     projects_title: "Projekte",
     projects_description: "Dies sind einige der Projekte, an denen ich gearbeitet habe.",
+    projects_previous: "Vorheriges Projekt",
+    projects_next: "Nächstes Projekt",
+    projects_image_alt: "Bild des Projekts ",
+    projects_tags_label: "Verwendete Technologien",
     projects_repo: "Zum Projekt-Repo gehen",
     // Contact
     contact_title: "Kontakt aufnehmen",
