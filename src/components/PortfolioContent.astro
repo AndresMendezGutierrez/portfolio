@@ -3,6 +3,7 @@ import type { LocaleProps } from "../types";
 import About from "./About.astro";
 import Contact from "./Contact.astro";
 import Footer from "./Footer.astro";
+import IconComponent from "./IconComponent.astro";
 import Intro from "./Intro.astro";
 import MainComponent from "./MainComponent.astro";
 import NavIndex from "./NavIndex.astro";
@@ -40,7 +41,10 @@ const { translate, currentLang } = Astro.props;
     <Contact translate={translate} />
   </section>
 
-  <p class="my-2" set:html={translate("recaptcha_disclaimer")} />
+  <section class="flex gap-1 pb-12">
+    <IconComponent icon="info" class="w-5 h-5" />
+    <p set:html={translate("recaptcha_disclaimer")} />
+  </section>
 </MainComponent>
 
 <NavIndex
