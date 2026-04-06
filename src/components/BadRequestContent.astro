@@ -1,8 +1,9 @@
 ---
+import type { Locale } from "../types";
 import type { useTranslations } from "../assets/i18n/utils";
 
 interface Props {
-  currentLang: "en" | "es" | "de";
+  currentLang: Locale;
   translate: ReturnType<typeof useTranslations>;
 }
 
