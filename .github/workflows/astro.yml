@@ -69,15 +69,16 @@ jobs:
         working-directory: ${{ env.BUILD_PATH }}
       - name: Build with Astro
         env:
-          FIREBASE_PRIVATE_KEY_ID: ${{ secrets.FIREBASE_PRIVATE_KEY_ID }}
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
-          FIREBASE_CLIENT_ID: ${{ secrets.FIREBASE_CLIENT_ID }}
-          FIREBASE_AUTH_URI: ${{ secrets.FIREBASE_AUTH_URI }}
-          FIREBASE_TOKEN_URI: ${{ secrets.FIREBASE_TOKEN_URI }}
-          FIREBASE_AUTH_CERT_URL: ${{ secrets.FIREBASE_AUTH_CERT_URL }}
-          FIREBASE_CLIENT_CERT_URL: ${{ secrets.FIREBASE_CLIENT_CERT_URL }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          PUBLIC_RECAPTCHA_URL: ${{ secrets.PUBLIC_RECAPTCHA_URL }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+          PUBLIC_BACKEND_URL: ${{ secrets.PUBLIC_BACKEND_URL }}
+          PUBLIC_MAIL_SERVICE_ID: ${{ secrets.PUBLIC_MAIL_SERVICE_ID }}
+          PUBLIC_MAIL_TEMPLATE_ID: ${{ secrets.PUBLIC_MAIL_TEMPLATE_ID }}
+          PUBLIC_MAIL_PUBLIC_KEY: ${{ secrets.PUBLIC_MAIL_PUBLIC_KEY }}
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} astro build \
             --site "${{ steps.pages.outputs.origin }}" \
