@@ -58,10 +58,11 @@ npm run preview // Previsualiza localmente la versión de producción.
 npm run astro -- --help // Muestra la ayuda de la CLI de Astro.
 ```
 
-Licencia
+## Licencia
+
 Este proyecto está bajo la Licencia MIT. Siéntete libre de usar el código para tu propio portafolio.
 
-📩 Contacto
+## 📩 Contacto
 
 Diseñado y desarrollado por Andrés Méndez.
 
