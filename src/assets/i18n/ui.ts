@@ -65,6 +65,7 @@ export const ui = {
     projects_image_alt: "Image of project ",
     projects_tags_label: "Technologies used",
     projects_repo: "Go to project repo",
+    projects_link: "Go to website",
     // Contact
     contact_title: "Get in touch",
     contact_label_menu: "Social networks and direct contact",
@@ -159,6 +160,7 @@ export const ui = {
     projects_image_alt: "Imagen del proyecto ",
     projects_tags_label: "Tecnologías usadas",
     projects_repo: "Ir al repositorio del proyecto",
+    projects_link: "Ir a la web",
     // Contact
     contact_title: "Ponte en contacto",
     contact_label_menu: "Redes sociales y contacto directo",
@@ -253,6 +255,7 @@ export const ui = {
     projects_image_alt: "Bild des Projekts ",
     projects_tags_label: "Verwendete Technologien",
     projects_repo: "Zum Projekt-Repo gehen",
+    projects_link: "Zum Projekt gehen",
     // Contact
     contact_title: "Kontakt aufnehmen",
     contact_label_menu: "Soziale Netzwerke und direkter Kontakt",
