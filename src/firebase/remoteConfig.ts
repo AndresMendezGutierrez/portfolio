@@ -3,10 +3,9 @@ import { getRemoteConfig } from "firebase-admin/remote-config";
 
 const remoteConfig = getRemoteConfig(app);
 
-// Cache the template to avoid repeated API calls
 let cachedTemplate: Awaited<ReturnType<typeof remoteConfig.getTemplate>> | null = null;
 let cacheTimestamp = 0;
-const CACHE_TTL_MS = 60 * 1000; // 1 minute cache
+const CACHE_TTL_MS = 60 * 1000;
 
 /**
  * Fetches the Remote Config template from Firebase (with caching).
@@ -43,7 +42,6 @@ export async function getRemoteConfigValue(key: string, defaultValue: string = "
 
   const param = template.parameters[key];
 
-  // Get the default value from the parameter
   if (param.defaultValue && "value" in param.defaultValue) {
     return param.defaultValue.value as string;
   }
