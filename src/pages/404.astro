@@ -1,5 +1,5 @@
 ---
-import { useTranslations } from "../assets/i18n/utils";
+import { getTranslatedPath, useTranslations } from "../assets/i18n/utils";
 import BadRequestContent from "../components/BadRequestContent.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
@@ -17,5 +17,5 @@ const translate = useTranslations(currentLang as "es" | "en" | "de");
 ---
 
 <Layout currentLang={currentLang} translate={translate}>
-  <BadRequestContent currentLang={currentLang} translate={translate} />
+  <BadRequestContent translate={translate} homePath={getTranslatedPath("/", currentLang)} />
 </Layout>
