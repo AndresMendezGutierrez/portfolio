@@ -8,7 +8,7 @@ interface Props extends TranslateOnlyProps {}
 const { translate } = Astro.props;
 
 const RECAPTCHA_URL: string = import.meta.env.PUBLIC_RECAPTCHA_URL;
-const RECAPTCHA_SITE_KEY: string = import.meta.env.RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SITE_KEY: string = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
 
 const uiMessages: UIMessageMap = {
   required: translate("form_error_required"),
